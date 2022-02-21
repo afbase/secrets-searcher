@@ -4,7 +4,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 )
 
 const (

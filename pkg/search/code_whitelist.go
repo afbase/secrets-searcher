@@ -1,8 +1,8 @@
 package search
 
 import (
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 )
 
 type CodeWhitelist struct {

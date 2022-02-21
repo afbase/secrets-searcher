@@ -4,10 +4,10 @@ import (
 	"context"
 	"time"
 
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/valid"
 	va "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/valid"
 )
 
 type SearchConfig struct {

@@ -1,10 +1,10 @@
 package builtin
 
 import (
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/entropy"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search"
-	. "github.com/pantheon-systems/secrets-searcher/pkg/search/rulebuild"
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/entropy"
+	"github.com/afbasse/secrets-searcher/pkg/search"
+	. "github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
 )
 
 // Target definitions

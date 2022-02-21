@@ -3,9 +3,9 @@ package search
 import (
 	"sync"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/contract"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/search/contract"
 )
 
 type (

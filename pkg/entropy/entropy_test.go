@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	. "github.com/pantheon-systems/secrets-searcher/pkg/entropy"
+	. "github.com/afbase/secrets-searcher/pkg/entropy"
 	"github.com/stretchr/testify/require"
 )
 

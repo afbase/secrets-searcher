@@ -1,4 +1,4 @@
-module github.com/pantheon-systems/secrets-searcher
+module github.com/afbase/secrets-searcher
 
 go 1.13
 

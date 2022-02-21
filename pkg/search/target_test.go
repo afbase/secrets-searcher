@@ -3,10 +3,10 @@ package search_test
 import (
 	"testing"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/builtin"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/searchtest"
+	"github.com/afbase/secrets-searcher/pkg/builtin"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/search"
+	"github.com/afbase/secrets-searcher/pkg/search/searchtest"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

@@ -5,11 +5,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	gitpkg "github.com/pantheon-systems/secrets-searcher/pkg/git"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/source"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/source"
 )
 
 type LocalProvider struct {

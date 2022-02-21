@@ -1,8 +1,8 @@
 package testing
 
 import (
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 	va "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
 )
 
 func findErrorForParam(r *manip.Param, errs va.Errors) (result va.Error) {

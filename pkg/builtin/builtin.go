@@ -1,8 +1,8 @@
 package builtin
 
 import (
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
 	va "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
 )
 
 //

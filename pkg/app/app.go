@@ -4,17 +4,17 @@ import (
 	"os"
 	"time"
 
+	"github.com/afbasse/secrets-searcher/pkg/app/build"
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/database"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	reporterpkg "github.com/afbasse/secrets-searcher/pkg/reporter"
+	searchpkg "github.com/afbasse/secrets-searcher/pkg/search"
+	sourcepkg "github.com/afbasse/secrets-searcher/pkg/source"
+	"github.com/afbasse/secrets-searcher/pkg/stats"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/hako/durafmt"
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/build"
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/database"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	reporterpkg "github.com/pantheon-systems/secrets-searcher/pkg/reporter"
-	searchpkg "github.com/pantheon-systems/secrets-searcher/pkg/search"
-	sourcepkg "github.com/pantheon-systems/secrets-searcher/pkg/source"
-	"github.com/pantheon-systems/secrets-searcher/pkg/stats"
 )
 
 type App struct {

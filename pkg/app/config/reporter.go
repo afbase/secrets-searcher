@@ -3,8 +3,8 @@ package config
 import (
 	"time"
 
+	"github.com/afbasse/secrets-searcher/pkg/errors"
 	va "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
 )
 
 type ReportConfig struct {

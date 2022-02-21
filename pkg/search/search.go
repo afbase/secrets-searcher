@@ -3,11 +3,11 @@ package search
 import (
 	"time"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/database"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	interactpkg "github.com/pantheon-systems/secrets-searcher/pkg/interact"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/stats"
+	"github.com/afbasse/secrets-searcher/pkg/database"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/stats"
 )
 
 type Search struct {

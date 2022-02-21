@@ -5,12 +5,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/database"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	gitpkg "github.com/pantheon-systems/secrets-searcher/pkg/git"
-	interactpkg "github.com/pantheon-systems/secrets-searcher/pkg/interact"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/database"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
+	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 	"github.com/sirsean/go-pool"
 )
 

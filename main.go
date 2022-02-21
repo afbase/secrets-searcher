@@ -1,9 +1,9 @@
 package main
 
 import (
-    "github.com/pantheon-systems/secrets-searcher/cmd"
+	"github.com/afbasse/secrets-searcher/cmd"
 )
 
 func main() {
-    cmd.Execute()
+	cmd.Execute()
 }

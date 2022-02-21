@@ -3,13 +3,13 @@ package setter_test
 import (
 	"testing"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/builtin"
-	"github.com/pantheon-systems/secrets-searcher/pkg/dev"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search"
-	. "github.com/pantheon-systems/secrets-searcher/pkg/search/processor/setter"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/rulebuild"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/searchtest"
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/builtin"
+	"github.com/afbasse/secrets-searcher/pkg/dev"
+	"github.com/afbasse/secrets-searcher/pkg/search"
+	. "github.com/afbasse/secrets-searcher/pkg/search/processor/setter"
+	"github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
+	"github.com/afbasse/secrets-searcher/pkg/search/searchtest"
 	"github.com/stretchr/testify/require"
 )
 

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	apppkg "github.com/pantheon-systems/secrets-searcher/pkg/app"
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
+	apppkg "github.com/afbasse/secrets-searcher/pkg/app"
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
 )
 
 const (

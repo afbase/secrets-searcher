@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/onsi/gomega/types"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
 )
 
 func HaveErrorType(param *manip.Param, expectErrObj va.Error) types.GomegaMatcher {

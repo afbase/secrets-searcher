@@ -1,7 +1,7 @@
 package git
 
 import (
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
 )
 
 type FileChangeFilter struct {

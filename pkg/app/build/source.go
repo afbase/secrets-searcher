@@ -3,15 +3,15 @@ package build
 import (
 	"context"
 
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/database"
+	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
+	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/source"
+	providerpkg "github.com/afbasse/secrets-searcher/pkg/source/providers"
 	"github.com/google/go-github/v29/github"
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/database"
-	gitpkg "github.com/pantheon-systems/secrets-searcher/pkg/git"
-	interactpkg "github.com/pantheon-systems/secrets-searcher/pkg/interact"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/source"
-	providerpkg "github.com/pantheon-systems/secrets-searcher/pkg/source/providers"
 	"golang.org/x/oauth2"
 )
 

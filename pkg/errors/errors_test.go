@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/dev"
+	"github.com/afbasse/secrets-searcher/pkg/dev"
 
+	"github.com/afbasse/secrets-searcher/pkg/errors"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
 )
 
 const (

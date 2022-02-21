@@ -3,13 +3,13 @@ package setter
 import (
 	"strings"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/dev"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search"
+	"github.com/afbasse/secrets-searcher/pkg/dev"
+	"github.com/afbasse/secrets-searcher/pkg/search"
 
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/search/contract"
 	cmap "github.com/orcaman/concurrent-map"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/contract"
 )
 
 const KeyValueExtraName = "setter-key-value"

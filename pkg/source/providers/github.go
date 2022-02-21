@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/source"
 	"github.com/google/go-github/v29/github"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/source"
 )
 
 const perPage = 100

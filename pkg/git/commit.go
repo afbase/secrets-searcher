@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
 	gitobject "gopkg.in/src-d/go-git.v4/plumbing/object"
 )
 

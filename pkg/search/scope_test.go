@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/git"
-	. "github.com/pantheon-systems/secrets-searcher/pkg/search"
-	statspkg "github.com/pantheon-systems/secrets-searcher/pkg/stats"
+	"github.com/afbasse/secrets-searcher/pkg/git"
+	. "github.com/afbasse/secrets-searcher/pkg/search"
+	statspkg "github.com/afbasse/secrets-searcher/pkg/stats"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,11 +3,11 @@ package config
 import (
 	"context"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/source"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/source"
 
+	"github.com/afbasse/secrets-searcher/pkg/valid"
 	va "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/pantheon-systems/secrets-searcher/pkg/valid"
 )
 
 type SourceConfig struct {

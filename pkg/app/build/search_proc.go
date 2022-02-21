@@ -3,18 +3,18 @@ package build
 import (
 	"regexp"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/builtin"
+	"github.com/afbasse/secrets-searcher/pkg/builtin"
 
-	"github.com/pantheon-systems/secrets-searcher/pkg/app/config"
-	"github.com/pantheon-systems/secrets-searcher/pkg/errors"
-	"github.com/pantheon-systems/secrets-searcher/pkg/logg"
-	"github.com/pantheon-systems/secrets-searcher/pkg/manip"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/contract"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/processor/entropy"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/processor/pem"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/processor/regex"
-	"github.com/pantheon-systems/secrets-searcher/pkg/search/processor/setter"
+	"github.com/afbasse/secrets-searcher/pkg/app/config"
+	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbasse/secrets-searcher/pkg/search"
+	"github.com/afbasse/secrets-searcher/pkg/search/contract"
+	"github.com/afbasse/secrets-searcher/pkg/search/processor/entropy"
+	"github.com/afbasse/secrets-searcher/pkg/search/processor/pem"
+	"github.com/afbasse/secrets-searcher/pkg/search/processor/regex"
+	"github.com/afbasse/secrets-searcher/pkg/search/processor/setter"
 )
 
 func Procs(searchCfg *config.SearchConfig, targets *search.TargetSet, processorsLog logg.Logg) (result []contract.ProcessorI, err error) {
