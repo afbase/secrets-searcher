@@ -3,15 +3,15 @@ package build
 import (
 	"path/filepath"
 
-	"github.com/afbasse/secrets-searcher/pkg/stats"
+	"github.com/afbase/secrets-searcher/pkg/stats"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/database"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	reporterpkg "github.com/afbasse/secrets-searcher/pkg/reporter"
-	"github.com/afbasse/secrets-searcher/pkg/source"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/database"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	reporterpkg "github.com/afbase/secrets-searcher/pkg/reporter"
+	"github.com/afbase/secrets-searcher/pkg/source"
 )
 
 func Reporter(reporterCfg *config.ReportConfig, outputDir, url string, sourceProvider source.ProviderI, secretIDFilter *manip.SliceFilter, stats *stats.Stats, db *database.Database, log logg.Logg) *reporterpkg.Reporter {

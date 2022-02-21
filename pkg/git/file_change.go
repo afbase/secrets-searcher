@@ -4,7 +4,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/errors"
 	gitdiff "gopkg.in/src-d/go-git.v4/plumbing/format/diff"
 	gitobject "gopkg.in/src-d/go-git.v4/plumbing/object"
 )

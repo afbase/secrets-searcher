@@ -3,13 +3,13 @@ package setter_test
 import (
 	"testing"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/builtin"
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/search"
-	. "github.com/afbasse/secrets-searcher/pkg/search/processor/setter"
-	"github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
-	"github.com/afbasse/secrets-searcher/pkg/search/searchtest"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/builtin"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/search"
+	. "github.com/afbase/secrets-searcher/pkg/search/processor/setter"
+	"github.com/afbase/secrets-searcher/pkg/search/rulebuild"
+	"github.com/afbase/secrets-searcher/pkg/search/searchtest"
 	"github.com/stretchr/testify/require"
 )
 

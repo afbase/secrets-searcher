@@ -3,18 +3,18 @@ package build
 import (
 	"regexp"
 
-	"github.com/afbasse/secrets-searcher/pkg/builtin"
+	"github.com/afbase/secrets-searcher/pkg/builtin"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/search"
-	"github.com/afbasse/secrets-searcher/pkg/search/contract"
-	"github.com/afbasse/secrets-searcher/pkg/search/processor/entropy"
-	"github.com/afbasse/secrets-searcher/pkg/search/processor/pem"
-	"github.com/afbasse/secrets-searcher/pkg/search/processor/regex"
-	"github.com/afbasse/secrets-searcher/pkg/search/processor/setter"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/search"
+	"github.com/afbase/secrets-searcher/pkg/search/contract"
+	"github.com/afbase/secrets-searcher/pkg/search/processor/entropy"
+	"github.com/afbase/secrets-searcher/pkg/search/processor/pem"
+	"github.com/afbase/secrets-searcher/pkg/search/processor/regex"
+	"github.com/afbase/secrets-searcher/pkg/search/processor/setter"
 )
 
 func Procs(searchCfg *config.SearchConfig, targets *search.TargetSet, processorsLog logg.Logg) (result []contract.ProcessorI, err error) {

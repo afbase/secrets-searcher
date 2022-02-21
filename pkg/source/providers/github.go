@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/source"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/source"
 	"github.com/google/go-github/v29/github"
 )
 

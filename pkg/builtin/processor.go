@@ -1,10 +1,10 @@
 package builtin
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/entropy"
-	"github.com/afbasse/secrets-searcher/pkg/search"
-	. "github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/entropy"
+	"github.com/afbase/secrets-searcher/pkg/search"
+	. "github.com/afbase/secrets-searcher/pkg/search/rulebuild"
 )
 
 // Target definitions

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/onsi/gomega/types"
 )

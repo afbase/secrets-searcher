@@ -1,9 +1,9 @@
 package contract
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/git"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/git"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 )
 
 type (

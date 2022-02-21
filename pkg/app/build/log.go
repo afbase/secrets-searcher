@@ -3,9 +3,9 @@ package build
 import (
 	"os"
 
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 	"github.com/sirupsen/logrus"
 	prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )

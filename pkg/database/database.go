@@ -12,8 +12,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 )
 
 type Database struct {

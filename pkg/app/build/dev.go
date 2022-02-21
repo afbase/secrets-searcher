@@ -1,8 +1,8 @@
 package build
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/dev"
 )
 
 func Dev(devCfg *config.DevConfig) *dev.Parameters {

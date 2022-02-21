@@ -5,11 +5,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/source"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbase/secrets-searcher/pkg/git"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/source"
 )
 
 type LocalProvider struct {

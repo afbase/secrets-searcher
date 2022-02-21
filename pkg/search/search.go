@@ -3,11 +3,11 @@ package search
 import (
 	"time"
 
-	"github.com/afbasse/secrets-searcher/pkg/database"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/stats"
+	"github.com/afbase/secrets-searcher/pkg/database"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	interactpkg "github.com/afbase/secrets-searcher/pkg/interact"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/stats"
 )
 
 type Search struct {

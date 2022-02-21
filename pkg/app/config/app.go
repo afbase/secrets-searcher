@@ -3,10 +3,10 @@ package config
 import (
 	"context"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/vars"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/app/vars"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 )
 

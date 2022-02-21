@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/afbasse/secrets-searcher/cmd"
+	"github.com/afbase/secrets-searcher/cmd"
 )
 
 func main() {

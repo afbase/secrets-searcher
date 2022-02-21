@@ -13,15 +13,15 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/search"
+	"github.com/afbase/secrets-searcher/pkg/search"
 	"github.com/grantae/certinfo"
 	"golang.org/x/crypto/ssh"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/git"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/search/contract"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/git"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/search/contract"
 )
 
 const (

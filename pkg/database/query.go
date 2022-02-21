@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 )
 
 const (

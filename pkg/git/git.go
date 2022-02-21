@@ -1,8 +1,8 @@
 package git
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 	gitvendor "gopkg.in/src-d/go-git.v4"
 	gittransport "gopkg.in/src-d/go-git.v4/plumbing/transport"
 )

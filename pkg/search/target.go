@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"sort"
 
-	entropypkg "github.com/afbasse/secrets-searcher/pkg/entropy"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
+	entropypkg "github.com/afbase/secrets-searcher/pkg/entropy"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/search/rulebuild"
 )
 
 var (

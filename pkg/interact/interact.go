@@ -1,8 +1,8 @@
 package interact
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/interact/progress"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/interact/progress"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 )
 
 type Interact struct {

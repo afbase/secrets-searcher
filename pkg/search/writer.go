@@ -1,12 +1,12 @@
 package search
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/database"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/search/contract"
+	"github.com/afbase/secrets-searcher/pkg/database"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbase/secrets-searcher/pkg/git"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/search/contract"
 )
 
 const contextLenLimit = 50

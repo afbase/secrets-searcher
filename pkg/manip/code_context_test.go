@@ -3,7 +3,7 @@ package manip_test
 import (
 	"testing"
 
-	. "github.com/afbasse/secrets-searcher/pkg/manip"
+	. "github.com/afbase/secrets-searcher/pkg/manip"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

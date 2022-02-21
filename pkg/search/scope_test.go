@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/afbasse/secrets-searcher/pkg/git"
-	. "github.com/afbasse/secrets-searcher/pkg/search"
-	statspkg "github.com/afbasse/secrets-searcher/pkg/stats"
+	"github.com/afbase/secrets-searcher/pkg/git"
+	. "github.com/afbase/secrets-searcher/pkg/search"
+	statspkg "github.com/afbase/secrets-searcher/pkg/stats"
 	"github.com/stretchr/testify/assert"
 )
 

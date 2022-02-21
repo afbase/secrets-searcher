@@ -3,10 +3,10 @@ package regex_test
 import (
 	"testing"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/build"
-	"github.com/afbasse/secrets-searcher/pkg/builtin"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/search/searchtest"
+	"github.com/afbase/secrets-searcher/pkg/app/build"
+	"github.com/afbase/secrets-searcher/pkg/builtin"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/search/searchtest"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

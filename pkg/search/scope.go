@@ -4,9 +4,9 @@ import (
 	"strings"
 	"time"
 
-	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
-	"github.com/afbasse/secrets-searcher/pkg/search/contract"
-	"github.com/afbasse/secrets-searcher/pkg/stats"
+	gitpkg "github.com/afbase/secrets-searcher/pkg/git"
+	"github.com/afbase/secrets-searcher/pkg/search/contract"
+	"github.com/afbase/secrets-searcher/pkg/stats"
 )
 
 type (

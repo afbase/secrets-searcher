@@ -3,10 +3,10 @@ package setter
 import (
 	"regexp"
 
-	"github.com/afbasse/secrets-searcher/pkg/search"
-	"github.com/afbasse/secrets-searcher/pkg/search/rulebuild"
+	"github.com/afbase/secrets-searcher/pkg/search"
+	"github.com/afbase/secrets-searcher/pkg/search/rulebuild"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 )
 
 var templateRes = manip.NewRegexpSetFromStringsMustCompile(rulebuild.TemplateExts())

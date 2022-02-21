@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 
 	"os"

@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 
 	"github.com/sirupsen/logrus"
 

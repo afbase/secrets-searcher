@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 
 	lr "github.com/sirupsen/logrus"
 )

@@ -3,12 +3,12 @@ package setter
 import (
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/search"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/search"
 
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
-	"github.com/afbasse/secrets-searcher/pkg/search/contract"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/search/contract"
 	cmap "github.com/orcaman/concurrent-map"
 )
 

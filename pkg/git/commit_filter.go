@@ -3,7 +3,7 @@ package git
 import (
 	"time"
 
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 )
 
 type CommitFilter struct {

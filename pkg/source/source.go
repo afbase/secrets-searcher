@@ -5,12 +5,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/database"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
-	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/database"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbase/secrets-searcher/pkg/git"
+	interactpkg "github.com/afbase/secrets-searcher/pkg/interact"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 	"github.com/sirsean/go-pool"
 )
 

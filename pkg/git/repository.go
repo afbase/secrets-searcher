@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/src-d/go-git.v4/config"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/logg"
 	gitvendor "gopkg.in/src-d/go-git.v4"
 	gitplumbing "gopkg.in/src-d/go-git.v4/plumbing"
 	gitobject "gopkg.in/src-d/go-git.v4/plumbing/object"

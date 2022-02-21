@@ -1,7 +1,7 @@
 package git
 
 import (
-	"github.com/afbasse/secrets-searcher/pkg/manip"
+	"github.com/afbase/secrets-searcher/pkg/manip"
 )
 
 type FileChangeFilter struct {

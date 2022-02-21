@@ -3,19 +3,19 @@ package build
 import (
 	"path/filepath"
 
-	statspkg "github.com/afbasse/secrets-searcher/pkg/stats"
+	statspkg "github.com/afbase/secrets-searcher/pkg/stats"
 
-	"github.com/afbasse/secrets-searcher/pkg/app/config"
-	"github.com/afbasse/secrets-searcher/pkg/app/vars"
-	"github.com/afbasse/secrets-searcher/pkg/database"
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
-	gitpkg "github.com/afbasse/secrets-searcher/pkg/git"
-	interactpkg "github.com/afbasse/secrets-searcher/pkg/interact"
-	"github.com/afbasse/secrets-searcher/pkg/logg"
-	reporterpkg "github.com/afbasse/secrets-searcher/pkg/reporter"
-	searchpkg "github.com/afbasse/secrets-searcher/pkg/search"
-	sourcepkg "github.com/afbasse/secrets-searcher/pkg/source"
+	"github.com/afbase/secrets-searcher/pkg/app/config"
+	"github.com/afbase/secrets-searcher/pkg/app/vars"
+	"github.com/afbase/secrets-searcher/pkg/database"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/errors"
+	gitpkg "github.com/afbase/secrets-searcher/pkg/git"
+	interactpkg "github.com/afbase/secrets-searcher/pkg/interact"
+	"github.com/afbase/secrets-searcher/pkg/logg"
+	reporterpkg "github.com/afbase/secrets-searcher/pkg/reporter"
+	searchpkg "github.com/afbase/secrets-searcher/pkg/search"
+	sourcepkg "github.com/afbase/secrets-searcher/pkg/source"
 )
 
 type AppParams struct {

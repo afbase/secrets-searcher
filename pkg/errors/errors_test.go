@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/afbasse/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/dev"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/errors"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"

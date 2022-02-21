@@ -3,7 +3,7 @@ package config
 import (
 	"time"
 
-	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/errors"
 	va "github.com/go-ozzo/ozzo-validation/v4"
 )
 

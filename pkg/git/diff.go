@@ -4,8 +4,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/afbasse/secrets-searcher/pkg/dev"
-	"github.com/afbasse/secrets-searcher/pkg/errors"
+	"github.com/afbase/secrets-searcher/pkg/dev"
+	"github.com/afbase/secrets-searcher/pkg/errors"
 )
 
 var (
