@@ -7,13 +7,13 @@ This repository was inspired by [truffleHog](https://github.com/trufflesecurity/
 ## Build
 
 ```shell script
-cd ~/go/src/github.com/pantheon-systems
-git clone git@github.com:pantheon-systems/secrets-searcher.git
+cd ~/go/src/github.com/afbase
+git clone git@github.com:afbase/secrets-searcher.git
 cd secrets-searcher
 make
 ```
 
-## Pantheon usage
+## Github Organization usage
 
 Obtain a GitHub token with `repo` access to the repositories you want to scan. To generate a new token, log into
 GitHub, then go to "Settings > Developer settings > Personal access tokens > Generate new token".
@@ -21,7 +21,7 @@ GitHub, then go to "Settings > Developer settings > Personal access tokens > Gen
 Then run:
 
 ```shell script
-cd _pantheon
+cd example_config
 export SECRETS_SOURCE_API_TOKEN="[GITHUB_TOKEN]"
 ../secrets-searcher --config="config.yaml,config.rules.yaml"
 ```
