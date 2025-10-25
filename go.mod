@@ -4,10 +4,10 @@ go 1.25.3
 
 require (
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
+	github.com/go-viper/mapstructure/v2 v2.4.0
 	github.com/google/go-github/v29 v29.0.3
 	github.com/grantae/certinfo v0.0.0-20170412194111-59d56a35515b
 	github.com/hako/durafmt v0.0.0-20210608085754-5c1018a4e16b
-	github.com/mitchellh/mapstructure v1.5.0
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.38.2
 	github.com/orcaman/concurrent-map v1.0.0
@@ -19,9 +19,11 @@ require (
 	github.com/spf13/viper v1.21.0
 	github.com/stretchr/testify v1.11.1
 	github.com/vbauerster/mpb/v5 v5.4.0
+	github.com/wlbr/templify v0.0.0-20210816202250-7b8044ca19e9
 	github.com/x-cray/logrus-prefixed-formatter v0.5.2
 	golang.org/x/crypto v0.43.0
 	golang.org/x/oauth2 v0.32.0
+	golang.org/x/tools v0.37.0
 	gopkg.in/asaskevich/govalidator.v9 v9.0.0-20180315120708-ccb8e960c48f
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v2 v2.4.0
@@ -33,7 +35,6 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
@@ -54,9 +55,9 @@ require (
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	github.com/wlbr/templify v0.0.0-20210816202250-7b8044ca19e9 // indirect
 	github.com/xanzy/ssh-agent v0.2.1 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
+	golang.org/x/mod v0.28.0 // indirect
 	golang.org/x/net v0.45.0 // indirect
 	golang.org/x/sync v0.17.0 // indirect
 	golang.org/x/sys v0.37.0 // indirect

@@ -28,6 +28,12 @@ jobs:
         with:
           go-version: '1.25.3'
 
+      - name: Install code generation tools
+        run: |
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+          go install golang.org/x/tools/cmd/stringer@latest
+          go install github.com/wlbr/templify@latest
+
       - name: Run tests
         run: make test
 
