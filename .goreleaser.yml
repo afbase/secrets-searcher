@@ -1,0 +1,90 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+    - go generate ./...
+
+builds:
+  - id: secrets-searcher
+    binary: secrets-searcher
+    main: ./main.go
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/afbase/secrets-searcher/pkg/app/vars.Version={{.Version}}
+      - -X github.com/afbase/secrets-searcher/pkg/app/vars.Commit={{.Commit}}
+      - -X github.com/afbase/secrets-searcher/pkg/app/vars.Date={{.Date}}
+
+archives:
+  - id: secrets-searcher
+    format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+      - 'typo'
+      - 'Merge pull request'
+      - 'Merge branch'
+
+release:
+  github:
+    owner: afbase
+    name: secrets-searcher
+  draft: false
+  prerelease: auto
+  mode: replace
+  header: |
+    ## secrets-searcher {{.Tag}}
+
+    Release of secrets-searcher version {{.Tag}}.
+
+    ### Installation
+
+    Download the appropriate archive for your platform below and extract it.
+
+    **Linux/macOS:**
+    ```bash
+    tar -xzf secrets-searcher_*.tar.gz
+    sudo mv secrets-searcher /usr/local/bin/
+    ```
+
+    **Windows:**
+    Extract the zip file and add the directory to your PATH.
+
+  footer: |
+    ---
+
+    **Full Changelog**: https://github.com/afbase/secrets-searcher/compare/{{ .PreviousTag }}...{{ .Tag }}

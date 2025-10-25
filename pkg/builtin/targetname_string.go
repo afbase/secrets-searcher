@@ -17,8 +17,9 @@ const _TargetName_name = "PasswordsAPIKeysAndTokens"
 var _TargetName_index = [...]uint8{0, 9, 25}
 
 func (i TargetName) String() string {
-	if i < 0 || i >= TargetName(len(_TargetName_index)-1) {
+	idx := int(i) - 0
+	if i < 0 || idx >= len(_TargetName_index)-1 {
 		return "TargetName(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _TargetName_name[_TargetName_index[i]:_TargetName_index[i+1]]
+	return _TargetName_name[_TargetName_index[idx]:_TargetName_index[idx+1]]
 }

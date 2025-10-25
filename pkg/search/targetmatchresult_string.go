@@ -24,8 +24,9 @@ const _TargetMatchResult_name = "MatchKeyNoMatchKeyExcludedValTooShortValTooLong
 var _TargetMatchResult_index = [...]uint8{0, 5, 15, 26, 37, 47, 57, 68, 79, 89}
 
 func (i TargetMatchResult) String() string {
-	if i < 0 || i >= TargetMatchResult(len(_TargetMatchResult_index)-1) {
+	idx := int(i) - 0
+	if i < 0 || idx >= len(_TargetMatchResult_index)-1 {
 		return "TargetMatchResult(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _TargetMatchResult_name[_TargetMatchResult_index[i]:_TargetMatchResult_index[i+1]]
+	return _TargetMatchResult_name[_TargetMatchResult_index[idx]:_TargetMatchResult_index[idx+1]]
 }

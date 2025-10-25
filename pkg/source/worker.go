@@ -171,7 +171,7 @@ func (w *cloneWorker) finishBar(bar *progress.Spinner, doneMessage string) {
 	}
 
 	bar.Incr()
-	w.prog.Add(0, mpb.BarFillerFunc(func(writer io.Writer, width int, st *decor.Statistics) {
+	w.prog.Add(0, mpb.BarFillerFunc(func(writer io.Writer, width int, st decor.Statistics) {
 		_, _ = fmt.Fprintf(writer, doneMessage, w.repoInfo.Name)
 	})).SetTotal(0, true)
 }

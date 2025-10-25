@@ -12,7 +12,7 @@ import (
 	"github.com/afbase/secrets-searcher/pkg/manip"
 	"github.com/afbase/secrets-searcher/pkg/valid"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/mitchellh/mapstructure"
+	"github.com/go-viper/mapstructure/v2"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )

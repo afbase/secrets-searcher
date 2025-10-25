@@ -18,8 +18,9 @@ const _DiffOperation_name = "EqualDeleteAdd"
 var _DiffOperation_index = [...]uint8{0, 5, 11, 14}
 
 func (i DiffOperation) String() string {
-	if i < 0 || i >= DiffOperation(len(_DiffOperation_index)-1) {
+	idx := int(i) - 0
+	if i < 0 || idx >= len(_DiffOperation_index)-1 {
 		return "DiffOperation(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _DiffOperation_name[_DiffOperation_index[i]:_DiffOperation_index[i+1]]
+	return _DiffOperation_name[_DiffOperation_index[idx]:_DiffOperation_index[idx+1]]
 }

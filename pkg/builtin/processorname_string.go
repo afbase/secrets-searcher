@@ -64,8 +64,9 @@ const _ProcessorName_name = "URLPathParamValSetterURLQueryStringParamValSetterPy
 var _ProcessorName_index = [...]uint16{0, 21, 49, 66, 89, 113, 126, 144, 174, 205, 225, 242, 264, 287, 304, 327, 351, 373, 392, 417, 437, 457, 492, 520, 561, 587, 609, 631, 652, 667, 691, 707, 728, 741, 757, 777, 792, 813, 828, 846, 862, 874, 891, 908, 930, 947, 963, 981, 994, 1004}
 
 func (i ProcessorName) String() string {
-	if i < 0 || i >= ProcessorName(len(_ProcessorName_index)-1) {
+	idx := int(i) - 0
+	if i < 0 || idx >= len(_ProcessorName_index)-1 {
 		return "ProcessorName(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _ProcessorName_name[_ProcessorName_index[i]:_ProcessorName_index[i+1]]
+	return _ProcessorName_name[_ProcessorName_index[idx]:_ProcessorName_index[idx+1]]
 }

@@ -5,7 +5,6 @@ package reporter
 import (
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -280,7 +279,7 @@ func (r *Reporter) outputSecretMetadataFile(sData *SecretData, secretDir string)
 	}
 
 	// Write to file
-	err = ioutil.WriteFile(filePath, bytes, 0644)
+	err = os.WriteFile(filePath, bytes, 0644)
 	if err != nil {
 		return errors.WithMessagev(err, "unable to write secret", sData.ID, filePath)
 	}

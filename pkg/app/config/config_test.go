@@ -1,7 +1,6 @@
 package config_test
 
 import (
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -290,7 +289,7 @@ func mkTempDir(pattern string) (result string) {
 // Not automatically cleaned up unless you specify a temp dir as the base.
 func mkTempDirIn(base, pattern string) (result string) {
 	var err error
-	if result, err = ioutil.TempDir(base, pattern); err != nil {
+	if result, err = os.MkdirTemp(base, pattern); err != nil {
 		log.Fatal(err)
 	}
 	return result
@@ -312,7 +311,7 @@ var tempDir string
 
 var _ = BeforeSuite(func() {
 	var err error
-	if tempDir, err = ioutil.TempDir(os.TempDir(), "secrets-testing"); err != nil {
+	if tempDir, err = os.MkdirTemp(os.TempDir(), "secrets-testing"); err != nil {
 		log.Fatal(err)
 	}
 })

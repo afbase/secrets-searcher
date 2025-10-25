@@ -66,7 +66,7 @@ func (b *Bar) Incr() {
 
 func (b *Bar) Finished(perensMessage string) {
 	if b.completedMessage != "" {
-		b.progress.Add(0, mpb.BarFillerFunc(func(writer io.Writer, width int, st *decor.Statistics) {
+		b.progress.Add(0, mpb.BarFillerFunc(func(writer io.Writer, width int, st decor.Statistics) {
 			message := fmt.Sprintf(b.completedMessage, b.barName)
 			if strings.Contains(message, "%!(EXTRA") {
 				message = b.completedMessage

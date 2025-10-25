@@ -7,7 +7,6 @@ import (
 	"crypto/sha1"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sync"
@@ -109,7 +108,7 @@ func (d *Database) read(collection, resource string, v interface{}) (err error) 
 	file := filepath.Join(d.dir, collection, resource+".json")
 
 	var b []byte
-	b, err = ioutil.ReadFile(file)
+	b, err = os.ReadFile(file)
 	if err != nil {
 		return err
 	}
@@ -134,13 +133,13 @@ func (d *Database) readAllUnsafe(collection string) (result []string, err error)
 	}
 
 	dir := filepath.Join(d.dir, collection)
-	files, _ := ioutil.ReadDir(dir)
+	files, _ := os.ReadDir(dir)
 	result = make([]string, len(files))
 	for i, file := range files {
 		var b []byte
 		name := file.Name()
 		path := filepath.Join(dir, name)
-		b, err = ioutil.ReadFile(path)
+		b, err = os.ReadFile(path)
 		if err != nil {
 			return
 		}
@@ -246,7 +245,7 @@ func (d *Database) writeUnsafe(collection, resource string, v interface{}) (err 
 		return err
 	}
 
-	if err = ioutil.WriteFile(tmpPath, b, 0644); err != nil {
+	if err = os.WriteFile(tmpPath, b, 0644); err != nil {
 		return err
 	}
 

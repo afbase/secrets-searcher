@@ -1,7 +1,6 @@
 package providers
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -35,8 +34,8 @@ func (p *LocalProvider) GetName() (result string) {
 }
 
 func (p *LocalProvider) GetRepositories(repoFilter *manip.SliceFilter) (result []*source.RepoInfo, err error) {
-	var repoDirs []os.FileInfo
-	repoDirs, err = ioutil.ReadDir(p.dir)
+	var repoDirs []os.DirEntry
+	repoDirs, err = os.ReadDir(p.dir)
 	if err != nil {
 		err = errors.WithMessagev(err, "unable to get repositories", p.dir)
 		return
