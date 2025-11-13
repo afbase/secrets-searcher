@@ -77,27 +77,27 @@ func runProcessorTest(t *testing.T, tt processorTest) {
 func TestProcessor_SlackToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SlackTokenRegex,
-		line:          xorDecode("MhgvNTE2GQ5aGQ5aGhYaGRYaGBkaGhkaGxYaGxYaGRYxOQoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK"),
+		line:          xorDecode("PyIqNSguegkWGxkRBQ4VER8UZ3giNSIqd2toaW5vbG1iY2p3a2hpbm9sbWJjandraGlub2xtYmNqd2praGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88eA=="),
 		expMatch:      true,
-		expSecret:     xorDecode("IhonGT4yGDsyGDouGDgyGTwyGzsyOQcLCQgLCQgLCQgLCQgLCQgLCQgLCQgL"),
+		expSecret:     xorDecode("IjUiKndraGlub2xtYmNqd2toaW5vbG1iY2p3a2hpbm9sbWJjandqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PA=="),
 	})
 }
 
 func TestProcessor_SlackToken_BotToken(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SlackTokenRegex,
-		line:          xorDecode("GBkuGxowHAcKGwg0FRklGRkyIT4yGDsyGDouGDgyGTwyGzsyGToyGToyGTo5OwcKCwoJCwkKCQsJCgoJCwoJCwkKCQsJCgoJCwoJCwkKCQsJ"),
+		line:          xorDecode("CRYbGREFGBUOBQ4VER8UZyI1Ijh3a2hpbm9sbWJjandraGlub2xtYmNqd2praGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88"),
 		expMatch:      true,
-		expSecret:     xorDecode("IhonGT4yGDsyGDouGDgyGTwyGzsyGToyGToyGTo5OwcKCwoJCwkKCQsJCgoJCwoJCwkKCQsJCgoJCwoJCwkKCQsJ"),
+		expSecret:     xorDecode("IjUiOHdraGlub2xtYmNqd2toaW5vbG1iY2p3amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzw="),
 	})
 }
 
 func TestProcessor_SlackToken_AppToken(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SlackTokenRegex,
-		line:          xorDecode("JBwpKxoyIT4yGDsyGDouGDgyGTwyGzsyOQcLCQgLCQgLCQgLCQgLCQgLCQgLCQgL"),
+		line:          xorDecode("IjsqKndrdxtqa2hpbm9sbXdraGlub2xtYmNqd2praGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88"),
 		expMatch:      true,
-		expSecret:     xorDecode("IhonGT4yGDsyGDouGDgyGTwyGzsyOQcLCQgLCQgLCQgLCQgLCQgLCQgLCQgL"),
+		expSecret:     xorDecode("IjsqKndrdxtqa2hpbm9sbXdraGlub2xtYmNqd2praGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88"),
 	})
 }
 
@@ -117,18 +117,18 @@ func TestProcessor_SlackToken_Invalid(t *testing.T) {
 func TestProcessor_SlackWebhook_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SlackWebhookRegex,
-		line:          xorDecode("Hh8KHAsoCBweFgscJQYJJBoeMAEpHxwpGRwqHgEpHQALOT4yGDsyGDouGDgyMzoyIT4yGDsyGDouGDgyMzoyGhkaGhkaGhkaGhkaGhkaGhkaGhkaGBs="),
+		line:          xorDecode("Mi4uKilgdXUyNTUxKXQpNjs5MXQ5NTd1KT8oLDM5Pyl1DmpqampqampqdRhqampqampqanUCAgICAgICAgICAgICAgICAgICAgICAgI="),
 		expMatch:      true,
-		expSecret:     xorDecode("IQYJJBoeMAEpHxwpGRwqHgEpHQALOT4yGDsyGDouGDgyMzoyIT4yGDsyGDouGDgyMzoyGhkaGhkaGhkaGhkaGhkaGhkaGhkaGBs="),
+		expSecret:     xorDecode("Mi4uKilgdXUyNTUxKXQpNjs5MXQ5NTd1KT8oLDM5Pyl1DmpqampqampqdRhqampqampqanUCAgICAgICAgICAgICAgICAgICAgICAgI="),
 	})
 }
 
 func TestProcessor_SlackWebhook_InCode(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SlackWebhookRegex,
-		line:          xorDecode("JhkoIQkpHAgcIBwnJBwnJBoeMAEpHxwpGRwqHgEpHQALOT4xCwoJCwkKODoyIToxCwoJCwkKODoyBwoJCwoJCwoJCwoJCwoJCwoJCwoJCwoJCwoJOA=="),
+		line:          xorDecode("LT84MjU1MQ8oNnpnengyLi4qKWB1dTI1NTEpdCk2OzkxdDk1N3UpPygsMzk/KXUOa2hpbm9sbWJ1GGtoaW5vbG1idWpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88eA=="),
 		expMatch:      true,
-		expSecret:     xorDecode("IQYJJBoeMAEpHxwpGRwqHgEpHQALOT4xCwoJCwkKODoyIToxCwoJCwkKODoyBwoJCwoJCwoJCwoJCwoJCwoJCwoJCwoJCwoJOA=="),
+		expSecret:     xorDecode("Mi4uKilgdXUyNTUxKXQpNjs5MXQ5NTd1KT8oLDM5Pyl1DmtoaW5vbG1idRhraGlub2xtYnVqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PA=="),
 	})
 }
 

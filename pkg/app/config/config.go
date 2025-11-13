@@ -111,26 +111,41 @@ func printHelp() {
 	fmt.Println("To configure this command, pass --config=\"config.yaml\"")
 }
 
+func printVersion() {
+	fmt.Printf("%s version %s\n", vars.Name, vars.Version)
+	fmt.Printf("  Commit: %s\n", vars.Commit)
+	fmt.Printf("  Built:  %s\n", vars.Date)
+	fmt.Printf("  URL:    %s\n", vars.URL)
+}
+
 func parseFlags(args []string) (cfgFiles []string, err error) {
 	var help bool
+	var version bool
 
 	flags := pflag.NewFlagSet(os.Args[0], pflag.ExitOnError)
 	flags.StringSliceVarP(&cfgFiles, "config", "c", nil, "config files")
 	flags.BoolVarP(&help, "help", "h", false, "show command usage")
+	flags.BoolVarP(&version, "version", "v", false, "show version information")
 	if err = flags.Parse(args); err != nil {
 		err = errors.Wrap(err, "unable to parse flags")
 		return
 	}
 
-	if err = validation.Validate(cfgFiles, validation.Required); err != nil {
-		err = errors.WithMessage(err, "invalid value for \"config\"")
-		return
+	// Show version information if requested
+	if version {
+		printVersion()
+		os.Exit(0)
 	}
 
 	// Show help message if requested
 	if help {
 		printHelp()
 		os.Exit(0)
+	}
+
+	if err = validation.Validate(cfgFiles, validation.Required); err != nil {
+		err = errors.WithMessage(err, "invalid value for \"config\"")
+		return
 	}
 
 	return
