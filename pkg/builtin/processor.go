@@ -703,7 +703,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      SlackTokenRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(xox[p|b|o|a]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32})`,
+				RegexString: `(xox[pboa]-[0-9]{10,13}-[0-9]{10,13}-[0-9]{10,13}-[a-z0-9]{32})`,
 			},
 		},
 
@@ -748,7 +748,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      SlackWebhookRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}`,
+				RegexString: `https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{32}`,
 			},
 		},
 
@@ -802,7 +802,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      AWSSecretKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)aws(.{0,20})?(?-i)(['\"][0-9a-zA-Z\/+]{40}['\"])`,
+				RegexString: `(?i)aws(?:.{0,20})?(?-i)(['\"][0-9a-zA-Z\/+]{40}['\"])`,
 			},
 		},
 
