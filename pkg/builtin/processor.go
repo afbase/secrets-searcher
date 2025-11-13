@@ -793,7 +793,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      AWSAccessKeyIDRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `((?:ASIA|AKIA|AROA|AIDA)([A-Z0-9]{16}))`,
+				RegexString: `((?:ASIA|AKIA|AROA|AIDA)[A-Z0-9]{16})`,
 			},
 		},
 
@@ -802,7 +802,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      AWSSecretKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]`,
+				RegexString: `(?i)aws(.{0,20})?(?-i)(['\"][0-9a-zA-Z\/+]{40}['\"])`,
 			},
 		},
 
@@ -811,7 +811,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      AWSMWSAuthTokenRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`,
+				RegexString: `(amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})`,
 			},
 		},
 
@@ -829,7 +829,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      GitHubOAuthRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[g|G][i|I][t|T][h|H][u|U][b|B].*['\"][0-9a-zA-Z]{35,40}['\"]`,
+				RegexString: `[g|G][i|I][t|T][h|H][u|U][b|B].*(['\"][0-9a-zA-Z]{35,40}['\"])`,
 			},
 		},
 
@@ -838,7 +838,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      LinkedInClientIDRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]`,
+				RegexString: `(?i)linkedin(.{0,20})?(?-i)(['\"][0-9a-z]{12}['\"])`,
 			},
 		},
 
@@ -847,7 +847,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      LinkedInSecretKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]`,
+				RegexString: `(?i)linkedin(.{0,20})?(['\"][0-9a-z]{16}['\"])`,
 			},
 		},
 
@@ -856,7 +856,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      StripeAPIKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)(sk|pk)_(test|live)_[0-9a-zA-Z]{24,}`,
+				RegexString: `((?i)(?:sk|pk)_(?:test|live)_[0-9a-zA-Z]{24,})`,
 			},
 		},
 
@@ -865,7 +865,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      SquareAccessTokenRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `sq0atp-[0-9A-Za-z\-_]{22}`,
+				RegexString: `(sq0atp-[0-9A-Za-z\-_]{22})`,
 			},
 		},
 
@@ -874,7 +874,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      SquareOAuthSecretRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `sq0csp-[0-9A-Za-z\-_]{43}`,
+				RegexString: `(sq0csp-[0-9A-Za-z\-_]{43})`,
 			},
 		},
 
@@ -883,7 +883,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      PayPalBraintreeAccessTokenRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}`,
+				RegexString: `(access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32})`,
 			},
 		},
 
@@ -892,7 +892,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      SendGridAPIKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `SG\.[0-9A-Za-z\-_]{22}\.[0-9A-Za-z\-_]{43}`,
+				RegexString: `(SG\.[0-9A-Za-z\-_]{22}\.[0-9A-Za-z\-_]{43})`,
 			},
 		},
 
@@ -901,7 +901,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      MailGunAPIKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `key-[0-9a-zA-Z]{32}`,
+				RegexString: `(key-[0-9a-zA-Z]{32})`,
 			},
 		},
 
@@ -910,7 +910,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      MailChimpAPIKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[0-9a-f]{32}-us[0-9]{1,2}`,
+				RegexString: `([0-9a-f]{32}-us[0-9]{1,2})`,
 			},
 		},
 
@@ -946,7 +946,7 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			Name:      NuGetAPIKeyRegex.String(),
 			Processor: search.Regex.String(),
 			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `oy2[a-z0-9]{43}`,
+				RegexString: `(oy2[a-z0-9]{43})`,
 			},
 		},
 	}
