@@ -55,13 +55,31 @@ func _() {
 	_ = x[TwilioAPIKeyRegex-44]
 	_ = x[URLPasswordRegex-45]
 	_ = x[GenericSecretRegex-46]
-	_ = x[Base64Entropy-47]
-	_ = x[HexEntropy-48]
+	_ = x[AWSAccessKeyIDRegex-47]
+	_ = x[AWSSecretKeyRegex-48]
+	_ = x[AWSMWSAuthTokenRegex-49]
+	_ = x[GitHubTokenRegex-50]
+	_ = x[GitHubOAuthRegex-51]
+	_ = x[LinkedInClientIDRegex-52]
+	_ = x[LinkedInSecretKeyRegex-53]
+	_ = x[StripeAPIKeyRegex-54]
+	_ = x[SquareAccessTokenRegex-55]
+	_ = x[SquareOAuthSecretRegex-56]
+	_ = x[PayPalBraintreeAccessTokenRegex-57]
+	_ = x[SendGridAPIKeyRegex-58]
+	_ = x[MailGunAPIKeyRegex-59]
+	_ = x[MailChimpAPIKeyRegex-60]
+	_ = x[DigitalOceanPATRegex-61]
+	_ = x[DigitalOceanOAuthRegex-62]
+	_ = x[DigitalOceanRefreshTokenRegex-63]
+	_ = x[NuGetAPIKeyRegex-64]
+	_ = x[Base64Entropy-65]
+	_ = x[HexEntropy-66]
 }
 
-const _ProcessorName_name = "URLPathParamValSetterURLQueryStringParamValSetterPyVarAssignSetterPyDictFieldAssignSetterPyDictLiteralFieldSetterPyTupleSetterPHPVarAssignSetterPHPAssocArrayFieldAssignSetterPHPAssocArrayLiteralFieldSetterPHPConstDefineSetterJSVarAssignSetterJSObjFieldAssignSetterJSObjLiteralFieldSetterGoVarAssignSetterGoHashFieldAssignSetterGoHashLiteralFieldSetterGoFlagDefaultValSetterRubyVarAssignSetterRubyHashFieldAssignSetterRubyArrowParamSetterRubyColonParamSetterConfParamSystemdServiceEnvVarSetterConfParamLogstashStyleSetterConfParamLogstashStyleEnvVarDefaultSetterShellScriptVarAssignSetterShellCmdParamValSetterYAMLDictFieldValSetterJSONObjFieldValSetterXMLTagValSetterXMLTagValKeyAsAttrSetterXMLAttrValSetterHTMLTableRowValSetterGenericSetterRSAPrivateKeyPEMOpenSSHPrivateKeyPEMECPrivateKeyPEMPGPPrivateKeyBlockPEMSlackTokenRegexFacebookOAuthRegexGoogleOAuthRegexTwitterRegexHerokuAPIKeyRegexSlackWebhookRegexGCPServiceAccountRegexTwilioAPIKeyRegexURLPasswordRegexGenericSecretRegexBase64EntropyHexEntropy"
+const _ProcessorName_name = "URLPathParamValSetterURLQueryStringParamValSetterPyVarAssignSetterPyDictFieldAssignSetterPyDictLiteralFieldSetterPyTupleSetterPHPVarAssignSetterPHPAssocArrayFieldAssignSetterPHPAssocArrayLiteralFieldSetterPHPConstDefineSetterJSVarAssignSetterJSObjFieldAssignSetterJSObjLiteralFieldSetterGoVarAssignSetterGoHashFieldAssignSetterGoHashLiteralFieldSetterGoFlagDefaultValSetterRubyVarAssignSetterRubyHashFieldAssignSetterRubyArrowParamSetterRubyColonParamSetterConfParamSystemdServiceEnvVarSetterConfParamLogstashStyleSetterConfParamLogstashStyleEnvVarDefaultSetterShellScriptVarAssignSetterShellCmdParamValSetterYAMLDictFieldValSetterJSONObjFieldValSetterXMLTagValSetterXMLTagValKeyAsAttrSetterXMLAttrValSetterHTMLTableRowValSetterGenericSetterRSAPrivateKeyPEMOpenSSHPrivateKeyPEMECPrivateKeyPEMPGPPrivateKeyBlockPEMSlackTokenRegexFacebookOAuthRegexGoogleOAuthRegexTwitterRegexHerokuAPIKeyRegexSlackWebhookRegexGCPServiceAccountRegexTwilioAPIKeyRegexURLPasswordRegexGenericSecretRegexAWSAccessKeyIDRegexAWSSecretKeyRegexAWSMWSAuthTokenRegexGitHubTokenRegexGitHubOAuthRegexLinkedInClientIDRegexLinkedInSecretKeyRegexStripeAPIKeyRegexSquareAccessTokenRegexSquareOAuthSecretRegexPayPalBraintreeAccessTokenRegexSendGridAPIKeyRegexMailGunAPIKeyRegexMailChimpAPIKeyRegexDigitalOceanPATRegexDigitalOceanOAuthRegexDigitalOceanRefreshTokenRegexNuGetAPIKeyRegexBase64EntropyHexEntropy"
 
-var _ProcessorName_index = [...]uint16{0, 21, 49, 66, 89, 113, 126, 144, 174, 205, 225, 242, 264, 287, 304, 327, 351, 373, 392, 417, 437, 457, 492, 520, 561, 587, 609, 631, 652, 667, 691, 707, 728, 741, 757, 777, 792, 813, 828, 846, 862, 874, 891, 908, 930, 947, 963, 981, 994, 1004}
+var _ProcessorName_index = [...]uint16{0, 21, 49, 66, 89, 113, 126, 144, 174, 205, 225, 242, 264, 287, 304, 327, 351, 373, 392, 417, 437, 457, 492, 520, 561, 587, 609, 631, 652, 667, 691, 707, 728, 741, 757, 777, 792, 813, 828, 846, 862, 874, 891, 908, 930, 947, 963, 981, 1000, 1017, 1037, 1053, 1070, 1091, 1113, 1131, 1153, 1175, 1207, 1226, 1245, 1265, 1285, 1308, 1338, 1354, 1367, 1377}
 
 func (i ProcessorName) String() string {
 	idx := int(i) - 0

@@ -54,6 +54,24 @@ const (
 	TwilioAPIKeyRegex
 	URLPasswordRegex
 	GenericSecretRegex
+	AWSAccessKeyIDRegex
+	AWSSecretKeyRegex
+	AWSMWSAuthTokenRegex
+	GitHubTokenRegex
+	GitHubOAuthRegex
+	LinkedInClientIDRegex
+	LinkedInSecretKeyRegex
+	StripeAPIKeyRegex
+	SquareAccessTokenRegex
+	SquareOAuthSecretRegex
+	PayPalBraintreeAccessTokenRegex
+	SendGridAPIKeyRegex
+	MailGunAPIKeyRegex
+	MailChimpAPIKeyRegex
+	DigitalOceanPATRegex
+	DigitalOceanOAuthRegex
+	DigitalOceanRefreshTokenRegex
+	NuGetAPIKeyRegex
 
 	Base64Entropy
 	HexEntropy

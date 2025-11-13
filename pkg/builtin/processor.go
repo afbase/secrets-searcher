@@ -787,6 +787,168 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 				RegexString: `[s|S][e|E][c|C][r|R][e|E][t|T].*['|"][0-9a-zA-Z]{32,45}['|"]`,
 			},
 		},
+
+		// AWS Access Key ID regex
+		{
+			Name:      AWSAccessKeyIDRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `((?:ASIA|AKIA|AROA|AIDA)([A-Z0-9]{16}))`,
+			},
+		},
+
+		// AWS Secret Access Key regex
+		{
+			Name:      AWSSecretKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]`,
+			},
+		},
+
+		// AWS MWS Auth Token regex
+		{
+			Name:      AWSMWSAuthTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`,
+			},
+		},
+
+		// GitHub Token regex
+		{
+			Name:      GitHubTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)github[_\s]*(token|key|secret|pat)[\s]*[=:>]*[\s]*['\"]?([a-zA-Z0-9_]{35,})['\"]?`,
+			},
+		},
+
+		// GitHub OAuth Token regex
+		{
+			Name:      GitHubOAuthRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `[g|G][i|I][t|T][h|H][u|U][b|B].*['\"][0-9a-zA-Z]{35,40}['\"]`,
+			},
+		},
+
+		// LinkedIn Client ID regex
+		{
+			Name:      LinkedInClientIDRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]`,
+			},
+		},
+
+		// LinkedIn Secret Key regex
+		{
+			Name:      LinkedInSecretKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]`,
+			},
+		},
+
+		// Stripe API Key regex
+		{
+			Name:      StripeAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(sk|pk)_(test|live)_[0-9a-zA-Z]{24,}`,
+			},
+		},
+
+		// Square Access Token regex
+		{
+			Name:      SquareAccessTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `sq0atp-[0-9A-Za-z\-_]{22}`,
+			},
+		},
+
+		// Square OAuth Secret regex
+		{
+			Name:      SquareOAuthSecretRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `sq0csp-[0-9A-Za-z\-_]{43}`,
+			},
+		},
+
+		// PayPal Braintree Access Token regex
+		{
+			Name:      PayPalBraintreeAccessTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}`,
+			},
+		},
+
+		// SendGrid API Key regex
+		{
+			Name:      SendGridAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `SG\.[0-9A-Za-z\-_]{22}\.[0-9A-Za-z\-_]{43}`,
+			},
+		},
+
+		// MailGun API Key regex
+		{
+			Name:      MailGunAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `key-[0-9a-zA-Z]{32}`,
+			},
+		},
+
+		// MailChimp API Key regex
+		{
+			Name:      MailChimpAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `[0-9a-f]{32}-us[0-9]{1,2}`,
+			},
+		},
+
+		// Digital Ocean Personal Access Token regex
+		{
+			Name:      DigitalOceanPATRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(dop_v1_[a-f0-9]{64})\b`,
+			},
+		},
+
+		// Digital Ocean OAuth Token regex
+		{
+			Name:      DigitalOceanOAuthRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(doo_v1_[a-f0-9]{64})\b`,
+			},
+		},
+
+		// Digital Ocean Refresh Token regex
+		{
+			Name:      DigitalOceanRefreshTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(dor_v1_[a-f0-9]{64})\b`,
+			},
+		},
+
+		// NuGet API Key regex
+		{
+			Name:      NuGetAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `oy2[a-z0-9]{43}`,
+			},
+		},
 	}
 }
 
