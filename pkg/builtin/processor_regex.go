@@ -3130,5 +3130,854 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			},
 		},
 
+		// ========================================
+		// Error Tracking, Auth & Messaging (Batch 7)
+		// ========================================
+
+		// Airbrake Project Key
+		{
+			Name:      AirbrakeProjectKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)airbrake.{0,40}?\b([a-zA-Z0-9-]{32})\b`,
+			},
+		},
+
+		// Airbrake User Key
+		{
+			Name:      AirbrakeUserKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)airbrake.{0,40}?\b([a-zA-Z0-9-]{40})\b`,
+			},
+		},
+
+		// Bugsnag API Key
+		{
+			Name:      BugsnagKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)bugsnag.{0,40}?\b([0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12})\b`,
+			},
+		},
+
+		// Raygun API Key
+		{
+			Name:      RaygunKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)raygun.{0,40}?\b([a-zA-Z0-9+/]{32,}={0,2})\b`,
+			},
+		},
+
+		// Rollbar Access Token
+		{
+			Name:      RollbarTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)rollbar.{0,40}?\b([a-f0-9]{32})\b`,
+			},
+		},
+
+		// AppSignal Push API Key
+		{
+			Name:      AppSignalKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)appsignal.{0,40}?\b([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\b`,
+			},
+		},
+
+		// Honeybadger API Key
+		{
+			Name:      HoneybadgerKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)honeybadger.{0,40}?\b([a-zA-Z0-9]{32})\b`,
+			},
+		},
+
+		// AppDynamics Account Key
+		{
+			Name:      AppDynamicsKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)appdynamics.{0,40}?\b([a-zA-Z0-9_-]{32,64})\b`,
+			},
+		},
+
+		// Dynatrace API Token
+		{
+			Name:      DynatraceTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(dt0c01\.[A-Z0-9]{24}\.[A-Za-z0-9]{64})\b`,
+			},
+		},
+
+		// New Relic Browser API Key
+		{
+			Name:      NewRelicBrowserKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(NRJS-[a-f0-9]{19})\b`,
+			},
+		},
+
+		// New Relic License Key
+		{
+			Name:      NewRelicLicenseKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b([a-f0-9]{40}NRAL)\b`,
+			},
+		},
+
+		// 1Password Connect Token
+		{
+			Name:      OnePasswordConnectTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(eyJiIjoiMSIs[A-Za-z0-9_-]{100,})\b`,
+			},
+		},
+
+		// 1Password Service Account Token
+		{
+			Name:      OnePasswordServiceAccountRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(ops_eyJ[A-Za-z0-9_-]{100,})\b`,
+			},
+		},
+
+		// LastPass API Key
+		{
+			Name:      LastPassKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)lastpass.{0,40}?\b([a-f0-9]{64})\b`,
+			},
+		},
+
+		// Duo Security Integration Key
+		{
+			Name:      DuoSecurityKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:duo|duosecurity).{0,40}?\b(DI[A-Z0-9]{18})\b`,
+			},
+		},
+
+		// ForgeRock Client ID
+		{
+			Name:      ForgeRockKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)forgerock.{0,40}?\b([a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})\b`,
+			},
+		},
+
+		// Keycloak Client Secret
+		{
+			Name:      KeycloakClientSecretRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)keycloak.{0,40}?\b([a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12})\b`,
+			},
+		},
+
+		// Firebase Auth Custom Token (JWT)
+		{
+			Name:      FirebaseAuthCustomTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)firebase.{0,40}?custom.{0,20}?token.{0,20}?\b(eyJ[A-Za-z0-9_-]{50,}\.[A-Za-z0-9_-]{50,}\.[A-Za-z0-9_-]{20,})\b`,
+			},
+		},
+
+		// Supabase Service Role Key (JWT)
+		{
+			Name:      SupabaseServiceRoleKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9_-]{50,}\.[A-Za-z0-9_-]{20,})\b`,
+			},
+		},
+
+		// Pusher Channel Key
+		{
+			Name:      PusherChannelKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)pusher.{0,40}?\b([a-z0-9]{20})\b`,
+			},
+		},
+
+		// Pusher Channel Secret
+		{
+			Name:      PusherSubscriptionKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)pusher.{0,40}?secret.{0,20}?\b([a-z0-9]{20})\b`,
+			},
+		},
+
+		// Agora App ID
+		{
+			Name:      AgoraKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)agora.{0,40}?\b([a-z0-9]{32})\b`,
+			},
+		},
+
+		// Ably API Key
+		{
+			Name:      AblyKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b([a-zA-Z0-9_-]{5}\.[a-zA-Z0-9_-]{5}:[a-zA-Z0-9_+/]{20,})\b`,
+			},
+		},
+
+		// PubNub Publish/Subscribe Key
+		{
+			Name:      PubNubKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b((?:pub|sub)-c-[0-9a-z]{8}-[0-9a-z]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})\b`,
+			},
+		},
+
+		// Daily.co API Key
+		{
+			Name:      DailyCoKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)daily.{0,40}?\b([0-9a-f]{64})\b`,
+			},
+		},
+
+		// LiveKit API Key
+		{
+			Name:      LivekitKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(API[a-zA-Z0-9]{20,})\b`,
+			},
+		},
+
+		// ========================================
+		// CRM, Cloud & Data (Batch 8)
+		// ========================================
+
+		// Pipedrive API Key
+		{
+			Name:      PipedriveKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)pipedrive.{0,40}?\b([a-zA-Z0-9]{40})\b`,
+			},
+		},
+
+		// Close CRM API Key
+		{
+			Name:      CloseCRMKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(api_[a-zA-Z0-9.]{40,})\b`,
+			},
+		},
+
+		// Copper API Key
+		{
+			Name:      CopperKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)copper.{0,40}?\b([a-z0-9]{32})\b`,
+			},
+		},
+
+		// Apollo.io API Key
+		{
+			Name:      ApolloIOKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)apollo.{0,40}?\b([a-zA-Z0-9]{22})\b`,
+			},
+		},
+
+		// Clearbit API Key
+		{
+			Name:      ClearbitKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)clearbit.{0,40}?\b([0-9a-z_]{35})\b`,
+			},
+		},
+
+		// PeopleDataLabs API Key
+		{
+			Name:      PeopleDataLabsKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)peopledatalabs.{0,40}?\b([a-z0-9]{64})\b`,
+			},
+		},
+
+		// RocketReach API Key
+		{
+			Name:      RocketReachKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)rocketreach.{0,40}?\b([a-z0-9-]{39})\b`,
+			},
+		},
+
+		// Outreach.io API Key
+		{
+			Name:      OutreachIOKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)outreach.{0,40}?\b([a-zA-Z0-9_-]{40,})\b`,
+			},
+		},
+
+		// SalesLoft API Key
+		{
+			Name:      SalesLoftKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)salesloft.{0,40}?\b([a-zA-Z0-9_-]{40,})\b`,
+			},
+		},
+
+		// Gong API Key
+		{
+			Name:      GongKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)gong.{0,40}?\b([a-zA-Z0-9_-]{32,64})\b`,
+			},
+		},
+
+		// AWS ECR Registry URL
+		{
+			Name:      AWSECRRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(\d{12}\.dkr\.ecr\.[a-z0-9-]+\.amazonaws\.com)\b`,
+			},
+		},
+
+		// AWS SES SMTP Credential
+		{
+			Name:      AWSSESSmtpRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)ses.{0,20}?smtp.{0,20}?(?:user|pass).{0,20}?\b([A-Za-z0-9/+]{40,})\b`,
+			},
+		},
+
+		// AWS Lambda Function URL
+		{
+			Name:      AWSLambdaFunctionURLRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(https://[a-z0-9]+\.lambda-url\.[a-z0-9-]+\.on\.aws/)`,
+			},
+		},
+
+		// Azure SignalR Connection String
+		{
+			Name:      AzureSignalRRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(Endpoint=https://[a-zA-Z0-9-]+\.service\.signalr\.net;AccessKey=[a-zA-Z0-9+/=]+;)`,
+			},
+		},
+
+		// Azure Event Hub Connection String
+		{
+			Name:      AzureEventHubRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(Endpoint=sb://[a-zA-Z0-9-]+\.servicebus\.windows\.net/;SharedAccessKeyName=[^;]+;SharedAccessKey=[a-zA-Z0-9+/=]+)`,
+			},
+		},
+
+		// Azure Service Bus Connection String
+		{
+			Name:      AzureServiceBusRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(Endpoint=sb://[a-zA-Z0-9-]+\.servicebus\.windows\.net/;SharedAccessKeyName=[^;]+;SharedAccessKey=[a-zA-Z0-9+/=]+)`,
+			},
+		},
+
+		// Cloudflare CA Key
+		{
+			Name:      CloudflareCaKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(v1\.0-[A-Za-z0-9-]{171})\b`,
+			},
+		},
+
+		// Cloudflare R2 Secret
+		{
+			Name:      CloudflareR2Regex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:cloudflare|r2).{0,40}?(?:access_?key|secret).{0,20}?\b([a-f0-9]{32})\b`,
+			},
+		},
+
+		// Stream.io API Key
+		{
+			Name:      StreamIOKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:stream|getstream).{0,40}?\b([a-z0-9]{32,})\b`,
+			},
+		},
+
+		// Pinecone API Key
+		{
+			Name:      PineconeKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)pinecone.{0,40}?\b([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\b`,
+			},
+		},
+
+		// Weaviate API Key
+		{
+			Name:      WeaviateKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)weaviate.{0,40}?\b([a-zA-Z0-9]{40,})\b`,
+			},
+		},
+
+		// Qdrant API Key
+		{
+			Name:      QdrantKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)qdrant.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Milvus API Key
+		{
+			Name:      MilvusKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)milvus.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// dbt Cloud Token
+		{
+			Name:      DbtCloudTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)dbt.{0,40}?\b([a-f0-9]{40})\b`,
+			},
+		},
+
+		// Fivetran API Key
+		{
+			Name:      FivetranKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)fivetran.{0,40}?\b([a-zA-Z0-9_-]{40,})\b`,
+			},
+		},
+
+		// Airbyte API Key
+		{
+			Name:      AirbyteKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)airbyte.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Stitch Data API Key
+		{
+			Name:      StitchKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:stitch|stitchdata).{0,40}?\b([0-9a-z_]{35})\b`,
+			},
+		},
+
+		// Census API Key
+		{
+			Name:      CensusKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)census.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Hightouch API Key
+		{
+			Name:      HightouchKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)hightouch.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Cube.js API Secret
+		{
+			Name:      CubeJSKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:cubejs|cube).{0,40}?\b([a-f0-9]{32})\b`,
+			},
+		},
+
+		// Apache Superset Secret Key
+		{
+			Name:      ApacheSupersetKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)superset.{0,40}?secret.{0,20}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// ========================================
+		// E-commerce, DevInfra, DNS & Misc (Batch 9)
+		// ========================================
+
+		// Adyen API Key
+		{
+			Name:      AdyenKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(AQE[a-zA-Z0-9+/]{40,})\b`,
+			},
+		},
+
+		// Worldpay API Key
+		{
+			Name:      WorldpayKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)worldpay.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Mollie API Key
+		{
+			Name:      MollieKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b((?:live|test)_[a-zA-Z0-9]{30,})\b`,
+			},
+		},
+
+		// Ecwid API Key
+		{
+			Name:      EcwidKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)ecwid.{0,40}?\b(secret_[a-zA-Z0-9]{32,})\b`,
+			},
+		},
+
+		// Swell API Key
+		{
+			Name:      SwellKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)swell.{0,40}?\b([a-zA-Z0-9]{32})\b`,
+			},
+		},
+
+		// BigCartel API Key
+		{
+			Name:      BigCartelKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)bigcartel.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Podia API Key
+		{
+			Name:      PodiaKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)podia.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Shopify Partner API Key
+		{
+			Name:      ShopifyPartnerKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(shpss_[A-Fa-f0-9]{32})\b`,
+			},
+		},
+
+		// Buildkite Agent Token
+		{
+			Name:      BuildkiteAgentRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)buildkite.{0,40}?\b([a-z0-9]{40})\b`,
+			},
+		},
+
+		// Jenkins API Key
+		{
+			Name:      JenkinsAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)jenkins.{0,40}?\b([a-f0-9]{32,34})\b`,
+			},
+		},
+
+		// TeamCity Token
+		{
+			Name:      TeamCityTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)teamcity.{0,40}?\b(eyJ[a-zA-Z0-9_-]{100,})\b`,
+			},
+		},
+
+		// Nx Cloud Token
+		{
+			Name:      NxCloudTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:nx|nxcloud).{0,40}?\b([a-zA-Z0-9_-]{36,})\b`,
+			},
+		},
+
+		// Turborepo Token
+		{
+			Name:      TurborepoTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)turbo.{0,40}?\b([a-zA-Z0-9_-]{36,})\b`,
+			},
+		},
+
+		// Depot.dev Token
+		{
+			Name:      DepotDevTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)depot.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// WarpBuild Token
+		{
+			Name:      WarpBuildTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)warpbuild.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Gitea Token
+		{
+			Name:      GiteaTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)gitea.{0,40}?\b([a-f0-9]{40})\b`,
+			},
+		},
+
+		// Forgejo Token
+		{
+			Name:      ForgejoTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)forgejo.{0,40}?\b([a-f0-9]{40})\b`,
+			},
+		},
+
+		// Namecheap API Key
+		{
+			Name:      NamecheapKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)namecheap.{0,40}?\b([a-f0-9]{32,50})\b`,
+			},
+		},
+
+		// Gandi API Key
+		{
+			Name:      GandiKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)gandi.{0,40}?\b([a-zA-Z0-9]{24})\b`,
+			},
+		},
+
+		// DNSimple API Key
+		{
+			Name:      DNSimpleKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)dnsimple.{0,40}?\b([a-zA-Z0-9]{40,})\b`,
+			},
+		},
+
+		// NS1 API Key
+		{
+			Name:      NS1KeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)ns1.{0,40}?\b([a-zA-Z0-9]{32})\b`,
+			},
+		},
+
+		// DeepL API Key
+		{
+			Name:      DeepLKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}:fx)\b`,
+			},
+		},
+
+		// Hunter.io API Key
+		{
+			Name:      HunterIOKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)hunter.{0,40}?\b([a-z0-9_-]{40})\b`,
+			},
+		},
+
+		// ZeroBounce API Key
+		{
+			Name:      ZeroBounceKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)zerobounce.{0,40}?\b([a-z0-9]{32})\b`,
+			},
+		},
+
+		// Abstract API Key
+		{
+			Name:      AbstractAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)abstract.{0,40}?\b([0-9a-z]{32})\b`,
+			},
+		},
+
+		// IPStack API Key
+		{
+			Name:      IPStackKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)ipstack.{0,40}?\b([a-fA-F0-9]{32})\b`,
+			},
+		},
+
+		// PositionStack API Key
+		{
+			Name:      PositionStackKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)positionstack.{0,40}?\b([a-zA-Z0-9_]{32})\b`,
+			},
+		},
+
+		// MediaStack API Key
+		{
+			Name:      MediaStackKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)mediastack.{0,40}?\b([a-z0-9]{32})\b`,
+			},
+		},
+
+		// Calendly API Key (JWT)
+		{
+			Name:      CalendlyKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)calendly.{0,40}?\b(eyJ[A-Za-z0-9-_]{100,300}\.[A-Za-z0-9-_]{100,300}\.[A-Za-z0-9-_]+)\b`,
+			},
+		},
+
+		// Loom API Key
+		{
+			Name:      LoomKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)loom.{0,40}?\b([a-zA-Z0-9_-]{32,})\b`,
+			},
+		},
+
+		// Mux Video API Key
+		{
+			Name:      MuxVideoKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)mux.{0,40}?\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b`,
+			},
+		},
+
+		// BunnyCDN API Key
+		{
+			Name:      BunnyCDNKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)bunny.{0,40}?\b([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12,})\b`,
+			},
+		},
+
+		// KeyCDN API Key
+		{
+			Name:      KeyCDNKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)keycdn.{0,40}?\b([a-zA-Z0-9]{32,})\b`,
+			},
+		},
+
+		// StackPath API Key
+		{
+			Name:      StackPathKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)stackpath.{0,40}?\b([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\b`,
+			},
+		},
+
+		// Backblaze B2 Application Key
+		{
+			Name:      BackblazeB2KeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)(?:backblaze|b2).{0,40}?\b([a-zA-Z0-9]{31})\b`,
+			},
+		},
+
+		// Wasabi Access Key
+		{
+			Name:      WasabiAccessKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `(?i)wasabi.{0,40}?\b([A-Z0-9]{20})\b`,
+			},
+		},
+
 	}
 }

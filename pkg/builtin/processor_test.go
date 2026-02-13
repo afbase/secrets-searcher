@@ -5909,3 +5909,1157 @@ func TestProcessor_GoogleOAuthRefreshToken_Valid(t *testing.T) {
 func TestProcessor_GoogleOAuthRefreshToken_Invalid(t *testing.T) {
 	runProcessorTest(t, processorTest{coreProcessor: builtin.GoogleOAuthRefreshTokenRegex, line: `1//0short`, expMatch: false})
 }
+
+// ========================================
+// Airbrake Project Key Tests (Batch 7)
+// ========================================
+
+func TestProcessor_AirbrakeProjectKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AirbrakeProjectKeyRegex,
+		line:          xorDecode("OzMoOCg7MT8FKig1MD85LgUxPyNnOxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g="),
+	})
+}
+
+func TestProcessor_AirbrakeProjectKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AirbrakeProjectKeyRegex, line: `not a valid key`, expMatch: false})
+}
+
+func TestProcessor_AirbrakeUserKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AirbrakeUserKeyRegex,
+		line:          xorDecode("OzMoOCg7MT8FLyk/KAUxPyNnOxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g7ODk+a2hpbg=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g7ODk+a2hpbg=="),
+	})
+}
+
+func TestProcessor_AirbrakeUserKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AirbrakeUserKeyRegex, line: `not a valid key`, expMatch: false})
+}
+
+func TestProcessor_BugsnagKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.BugsnagKeyRegex,
+		line:          xorDecode("OC89KTQ7PQU7KjMFMT8jZztrOGg5aT5udz9vPGx3bWJjanc7ODk+dz88a2hpbm9sbWJjag=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHdtYmNqdzs4OT53PzxraGlub2xtYmNq"),
+	})
+}
+
+func TestProcessor_BugsnagKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.BugsnagKeyRegex, line: `bugsnag_key=not-valid`, expMatch: false})
+}
+
+func TestProcessor_RaygunKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.RaygunKeyRegex,
+		line:          xorDecode("KDsjPS80BTsqMwUxPyNnGxgZHh8cHRITEBEWFxQVCgsICQ4PDA0CAwA7ODk+Pzw="),
+		expMatch:      true,
+		expSecret:     xorDecode("GxgZHh8cHRITEBEWFxQVCgsICQ4PDA0CAwA7ODk+Pzw="),
+	})
+}
+
+func TestProcessor_RaygunKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.RaygunKeyRegex, line: `raygun_key=short`, expMatch: false})
+}
+
+func TestProcessor_RollbarToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.RollbarTokenRegex,
+		line:          xorDecode("KDU2Njg7KAUuNTE/NGc7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+
+func TestProcessor_RollbarToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.RollbarTokenRegex, line: `rollbar_token=notahexvalue`, expMatch: false})
+}
+
+func TestProcessor_AppSignalKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AppSignalKeyRegex,
+		line:          xorDecode("OyoqKTM9NDs2BSovKTIFOyozBTE/I2c7azhoOWk+bnc/bzxsdzttOGJ3OWM+anc/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+	})
+}
+
+func TestProcessor_AppSignalKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AppSignalKeyRegex, line: `appsignal_key=invalid`, expMatch: false})
+}
+
+func TestProcessor_HoneybadgerKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.HoneybadgerKeyRegex,
+		line:          xorDecode("MjU0PyM4Oz49PygFOyozBTE/I2c7GGk+H288HW0yEGMxFms3FGkqC28oCW0uD2MtAmsjaA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g="),
+	})
+}
+
+func TestProcessor_HoneybadgerKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.HoneybadgerKeyRegex, line: `honeybadger_key=short`, expMatch: false})
+}
+
+func TestProcessor_AppDynamicsKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AppDynamicsKeyRegex,
+		line:          xorDecode("OyoqPiM0OzczOSkFOzk5NS80LgUxPyNnOxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhBjMRZrNxRpKgtvKAltLg9jLQJrI2g="),
+	})
+}
+
+func TestProcessor_AppDynamicsKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AppDynamicsKeyRegex, line: `appdynamics_key=short`, expMatch: false})
+}
+
+func TestProcessor_DynatraceToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DynatraceTokenRegex,
+		line:          xorDecode("Pi5qOWprdBsYGR4fHB0SExARFhcUFQoLCAkODwwNAnQ7GDkePxw9EjMQMRY3FDUKKwgpDi8MLQIjAGpraGlub2xtYmM7GDkePxw9EjMQMRY3FDUKKwgpDi8MLQIjADsY"),
+		expMatch:      true,
+		expSecret:     xorDecode("Pi5qOWprdBsYGR4fHB0SExARFhcUFQoLCAkODwwNAnQ7GDkePxw9EjMQMRY3FDUKKwgpDi8MLQIjAGpraGlub2xtYmM7GDkePxw9EjMQMRY3FDUKKwgpDi8MLQIjADsY"),
+	})
+}
+
+func TestProcessor_DynatraceToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DynatraceTokenRegex, line: `dt0c01.SHORT.SHORT`, expMatch: false})
+}
+
+func TestProcessor_NewRelicBrowserKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.NewRelicBrowserKeyRegex,
+		line:          xorDecode("FAgQCXc7azhoOWk+bj9vPGw7bThiOWM+"),
+		expMatch:      true,
+		expSecret:     xorDecode("FAgQCXc7azhoOWk+bj9vPGw7bThiOWM+"),
+	})
+}
+
+func TestProcessor_NewRelicBrowserKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.NewRelicBrowserKeyRegex, line: `NRJS-tooshort`, expMatch: false})
+}
+
+func TestProcessor_NewRelicLicenseKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.NewRelicLicenseKeyRegex,
+		line:          xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ahQIGxY="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ahQIGxY="),
+	})
+}
+
+func TestProcessor_NewRelicLicenseKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.NewRelicLicenseKeyRegex, line: `abcdef1234NRAL`, expMatch: false})
+}
+
+func TestProcessor_OnePasswordConnectToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.OnePasswordConnectTokenRegex,
+		line:          xorDecode("PyMQMxMwNTMXCRMpOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqa2hpbm9sbWJjOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqa2hpbm9sbWJjOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqaw=="),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMxMwNTMXCRMpOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqa2hpbm9sbWJjOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqa2hpbm9sbWJjOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0CIwBqaw=="),
+	})
+}
+
+func TestProcessor_OnePasswordConnectToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.OnePasswordConnectTokenRegex, line: `eyJiIjoiMSIsshort`, expMatch: false})
+}
+
+func TestProcessor_OnePasswordServiceAccount_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.OnePasswordServiceAccountRegex,
+		line:          xorDecode("NSopBT8jEDsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5vbG1iYzsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5vbG1iYzsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAams="),
+		expMatch:      true,
+		expSecret:     xorDecode("NSopBT8jEDsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5vbG1iYzsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5vbG1iYzsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAams="),
+	})
+}
+
+func TestProcessor_OnePasswordServiceAccount_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.OnePasswordServiceAccountRegex, line: `ops_eyJshort`, expMatch: false})
+}
+
+func TestProcessor_LastPassKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.LastPassKeyRegex,
+		line:          xorDecode("NjspLio7KSkFOyozBTE/I2c7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bD9tPGI7YzhqOWs+aD9pPG47bzhsOW0+Yj9jPGo7azho"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ajlrPmg/aTxuO284bDltPmI/YzxqO2s4aA=="),
+	})
+}
+
+func TestProcessor_LastPassKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.LastPassKeyRegex, line: `lastpass_key=tooshort`, expMatch: false})
+}
+
+func TestProcessor_DuoSecurityKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DuoSecurityKeyRegex,
+		line:          xorDecode("Pi81BTM0Lj89KDsuMzU0BTE/I2ceExsYGR4fHB0SExARFhcUFQpqaw=="),
+		expMatch:      true,
+		expSecret:     xorDecode("HhMbGBkeHxwdEhMQERYXFBUKams="),
+	})
+}
+
+func TestProcessor_DuoSecurityKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DuoSecurityKeyRegex, line: `duo_key=DISHORT`, expMatch: false})
+}
+
+func TestProcessor_ForgeRockKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ForgeRockKeyRegex,
+		line:          xorDecode("PDUoPT8oNTkxBTk2Mz80LgUzPmc7azhoOWk+bnc/bzxsd21iY2p3Ozg5Pnc/PGtoaW5vbG1iY2o="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHdtYmNqdzs4OT53PzxraGlub2xtYmNq"),
+	})
+}
+
+func TestProcessor_ForgeRockKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ForgeRockKeyRegex, line: `forgerock_id=invalid`, expMatch: false})
+}
+
+func TestProcessor_KeycloakClientSecret_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.KeycloakClientSecretRegex,
+		line:          xorDecode("MT8jOTY1OzEFOTYzPzQuBSk/OSg/Lmc7axhoOWkebnc/bxxsd21iY2p3Oxg5Hnc/HGtoaW5vbG1iY2o="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2sYaDlpHm53P28cbHdtYmNqdzsYOR53PxxraGlub2xtYmNq"),
+	})
+}
+
+func TestProcessor_KeycloakClientSecret_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.KeycloakClientSecretRegex, line: `keycloak_secret=invalid`, expMatch: false})
+}
+
+func TestProcessor_FirebaseAuthCustomToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.FirebaseAuthCustomTokenRegex,
+		line:          xorDecode("PDMoPzg7KT8FOS8pLjU3BS41MT80Zz8jEDI4HTkzFTMQCQ8gE2sUMxMpEzQIbzkZE2wTMSoCDBkTKRM3LioAGRNsEzQINjlpCDw7aAxvAiAfIxcgC2sUMDluFQ4YMgM3FDEADQMzPAt0PyMQKjlpFzMVMxA3OwIQNgM3HCAACWsyAB1rKjg0FDE7I2syAzcUMQAPGGoAAhRqFgIYIzhoKjYDaQsvOw0cLhY3PiAAAhBoOw0UNgMNFDA4aQwvPhlvMDhoajMWGRAgPg0TMxUzEDc7AhA2AzccIAAJazIAHWsqODQUMTsjazIDNxQxAA8YagACFGoWAhgjOGgqNgNpCy87DRwuFjc+IAACEGg7DRQ2Aw0UMDhpDC8+GW8wOGhqMxYZEDI+DQszFTMQNT4SCC05IDUsFmg2MQANb2o7AghvPh1jLDgdLio+GW80OGhjNDgdDDI5HTYgFjcULDgJYzQ4aGM0OB0PLzsNCDY4NAgqPhIxLzsNCDY4NAgqPhI2ajhoYyk7aDZqFjQDIhYxNjEADW9qOwIIbwwdYyw4HS4qPhkTKRM0DCoAGRNsEzQINjlpCy4+AhQ2OTNqIhcwFzMWGRAqAwILMxUwH2kXHhstFx4bLRceGykTNwxuORkTbBcOOS0XHhsgFDAbLTwLdD4dDCA+HGMgOw0+LwMCCGs5Nww8ADdjIwJoACo5NwwzAwIUNgJoFGs5aQgsOAxjajhoLjY4NmNoAw0iKgAdHGo7DWMv"),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMjgdOTMVMxAJDyATaxQzEykTNAhvORkTbBMxKgIMGRMpEzcuKgAZE2wTNAg2OWkIPDtoDG8CIB8jFyALaxQwOW4VDhgyAzcUMQANAzM8C3Q/IxAqOWkXMxUzEDc7AhA2AzccIAAJazIAHWsqODQUMTsjazIDNxQxAA8YagACFGoWAhgjOGgqNgNpCy87DRwuFjc+IAACEGg7DRQ2Aw0UMDhpDC8+GW8wOGhqMxYZECA+DRMzFTMQNzsCEDYDNxwgAAlrMgAdayo4NBQxOyNrMgM3FDEADxhqAAIUahYCGCM4aCo2A2kLLzsNHC4WNz4gAAIQaDsNFDYDDRQwOGkMLz4ZbzA4aGozFhkQMj4NCzMVMxA1PhIILTkgNSwWaDYxAA1vajsCCG8+HWMsOB0uKj4ZbzQ4aGM0OB0MMjkdNiAWNxQsOAljNDhoYzQ4HQ8vOw0INjg0CCo+EjEvOw0INjg0CCo+EjZqOGhjKTtoNmoWNAMiFjE2MQANb2o7AghvDB1jLDgdLio+GRMpEzQMKgAZE2wTNAg2OWkLLj4CFDY5M2oiFzAXMxYZECoDAgszFTAfaRceGy0XHhstFx4bKRM3DG45GRNsFw45LRceGyAUMBstPAt0Ph0MID4cYyA7DT4vAwIIazk3DDwAN2MjAmgAKjk3DDMDAhQ2AmgUazlpCCw4DGNqOGguNjg2Y2gDDSIqAB0cajsNYy8="),
+	})
+}
+
+func TestProcessor_FirebaseAuthCustomToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.FirebaseAuthCustomTokenRegex, line: `firebase_custom_token=notajwt`, expMatch: false})
+}
+
+func TestProcessor_SupabaseServiceRoleKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.SupabaseServiceRoleKeyRegex,
+		line:          xorDecode("PyMQMjgdOTMVMxATDyATaxQzEykTNAhvORkTbBMxKgIMGRBjdD8jECo5aRczFTMQID4CGDIDNxwgAAkTKRM0EDYAMxNsEzQINjlpCC05N2MrAA0UahMzLTM5N2MpAAkTbBM0FDY5NAAqA2gMPDk3YykACRBjdDsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5v"),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMjgdOTMVMxATDyATaxQzEykTNAhvORkTbBMxKgIMGRBjdD8jECo5aRczFTMQID4CGDIDNxwgAAkTKRM0EDYAMxNsEzQINjlpCC05N2MrAA0UahMzLTM5N2MpAAkTbBM0FDY5NAAqA2gMPDk3YykACRBjdDsYOR4/HD0SMxAxFjcUNQorCCkOLwwtAiMAamtoaW5v"),
+	})
+}
+
+func TestProcessor_SupabaseServiceRoleKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.SupabaseServiceRoleKeyRegex, line: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.short.short`, expMatch: false})
+}
+
+func TestProcessor_PusherChannelKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PusherChannelKeyRegex,
+		line:          xorDecode("Ki8pMj8oBTsqKgUxPyNnO2s4aDlpPm4/bzxsO204YjljPmo="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo="),
+	})
+}
+
+func TestProcessor_PusherChannelKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PusherChannelKeyRegex, line: `pusher_key=short`, expMatch: false})
+}
+
+func TestProcessor_PusherSubscriptionKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PusherSubscriptionKeyRegex,
+		line:          xorDecode("Ki8pMj8oBSk/OSg/Lmc7azhoOWk+bj9vPGw7bThiOWM+ag=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo="),
+	})
+}
+
+func TestProcessor_PusherSubscriptionKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PusherSubscriptionKeyRegex, line: `pusher_secret=short`, expMatch: false})
+}
+
+func TestProcessor_AgoraKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AgoraKeyRegex,
+		line:          xorDecode("Oz01KDsFOyoqBTM+ZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5s"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+
+func TestProcessor_AgoraKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AgoraKeyRegex, line: `agora_id=tooshort`, expMatch: false})
+}
+
+func TestProcessor_AblyKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AblyKeyRegex,
+		line:          xorDecode("IgMgaxt0OBk+aB9gOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0="),
+		expMatch:      true,
+		expSecret:     xorDecode("IgMgaxt0OBk+aB9gOxg5Hj8cPRIzEDEWNxQ1CisIKQ4vDC0="),
+	})
+}
+
+func TestProcessor_AblyKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AblyKeyRegex, line: `ab.cd:short`, expMatch: false})
+}
+
+func TestProcessor_PubNubKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PubNubKeyRegex,
+		line:          xorDecode("Ki84dzl3O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+		expMatch:      true,
+		expSecret:     xorDecode("Ki84dzl3O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+	})
+}
+
+func TestProcessor_PubNubKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PubNubKeyRegex, line: `pub-c-tooshort`, expMatch: false})
+}
+
+func TestProcessor_DailyCoKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DailyCoKeyRegex,
+		line:          xorDecode("PjszNiMFOyozBTE/I2c7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bD9tPGI7YzhqOWs+aD9pPG47bzhsOW0+Yj9jPGo7azho"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ajlrPmg/aTxuO284bDltPmI/YzxqO2s4aA=="),
+	})
+}
+
+func TestProcessor_DailyCoKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DailyCoKeyRegex, line: `daily_key=tooshort`, expMatch: false})
+}
+
+func TestProcessor_LivekitKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.LivekitKeyRegex,
+		line:          xorDecode("GwoTOxg5Hj8cPRIzEDEWNxQ1CisIKQ4v"),
+		expMatch:      true,
+		expSecret:     xorDecode("GwoTOxg5Hj8cPRIzEDEWNxQ1CisIKQ4v"),
+	})
+}
+
+func TestProcessor_LivekitKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.LivekitKeyRegex, line: `APIshort`, expMatch: false})
+}
+
+// ========================================
+// CRM, Cloud & Data Tests (Batch 8)
+// ========================================
+
+func TestProcessor_PipedriveKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PipedriveKeyRegex,
+		line:          xorDecode("KjMqPz4oMyw/BTsqMwUxPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOA=="),
+	})
+}
+func TestProcessor_PipedriveKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PipedriveKeyRegex, line: `pipedrive_key=short`, expMatch: false})
+}
+
+func TestProcessor_CloseCRMKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CloseCRMKeyRegex,
+		line:          xorDecode("OyozBTsYaT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaSIDbyBqGzg="),
+		expMatch:      true,
+		expSecret:     xorDecode("OyozBTsYaT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaSIDbyBqGzg="),
+	})
+}
+func TestProcessor_CloseCRMKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CloseCRMKeyRegex, line: `api_tooshort`, expMatch: false})
+}
+
+func TestProcessor_CopperKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CopperKeyRegex,
+		line:          xorDecode("OTUqKj8oBTsqMwUxPyNnO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_CopperKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CopperKeyRegex, line: `copper_key=tooshort`, expMatch: false})
+}
+
+func TestProcessor_ApolloIOKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ApolloIOKeyRegex,
+		line:          xorDecode("Oyo1NjY1BTsqMwUxPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKg=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKg=="),
+	})
+}
+func TestProcessor_ApolloIOKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ApolloIOKeyRegex, line: `apollo_key=short`, expMatch: false})
+}
+
+func TestProcessor_ClearbitKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ClearbitKeyRegex,
+		line:          xorDecode("OTY/Oyg4My4FMT8jZztrOAVoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bCIj"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4BWg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sIiM="),
+	})
+}
+func TestProcessor_ClearbitKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ClearbitKeyRegex, line: `clearbit_key=short`, expMatch: false})
+}
+
+func TestProcessor_PeopleDataLabsKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PeopleDataLabsKeyRegex,
+		line:          xorDecode("Kj81KjY/PjsuOzY7OCkFMT8jZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bA=="),
+	})
+}
+func TestProcessor_PeopleDataLabsKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PeopleDataLabsKeyRegex, line: `peopledatalabs_key=tooshort`, expMatch: false})
+}
+
+func TestProcessor_RocketReachKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.RocketReachKeyRegex,
+		line:          xorDecode("KDU5MT8uKD87OTIFMT8jZztrOGg5aT5udz9vPGw7bThidzljPmo/azxodztpOG45bz5sdzs4OQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bDttOGJ3OWM+aj9rPGh3O2k4bjlvPmx3Ozg5"),
+	})
+}
+func TestProcessor_RocketReachKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.RocketReachKeyRegex, line: `rocketreach_key=short`, expMatch: false})
+}
+
+func TestProcessor_OutreachIOKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.OutreachIOKeyRegex,
+		line:          xorDecode("NS8uKD87OTIFOyozBTE/I2c7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28gahs4GT4="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+"),
+	})
+}
+func TestProcessor_OutreachIOKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.OutreachIOKeyRegex, line: `outreach_key=short`, expMatch: false})
+}
+
+func TestProcessor_SalesLoftKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.SalesLoftKeyRegex,
+		line:          xorDecode("KTs2Pyk2NTwuBS41MT80ZzsYaT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaSIDbyBqGzgZPg=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+"),
+	})
+}
+func TestProcessor_SalesLoftKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.SalesLoftKeyRegex, line: `salesloft_token=short`, expMatch: false})
+}
+
+func TestProcessor_GongKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.GongKeyRegex,
+		line:          xorDecode("PTU0PQU7KjMFMT8jZzsYaT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaSIDbyBqGw=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGob"),
+	})
+}
+func TestProcessor_GongKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.GongKeyRegex, line: `gong_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_AWSECR_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AWSECRRegex,
+		line:          xorDecode("a2hpbm9sbWJjamtodD4xKHQ/OSh0Lyl3PzspLndrdDs3OyA1NDstKXQ5NTc="),
+		expMatch:      true,
+		expSecret:     xorDecode("a2hpbm9sbWJjamtodD4xKHQ/OSh0Lyl3PzspLndrdDs3OyA1NDstKXQ5NTc="),
+	})
+}
+func TestProcessor_AWSECR_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AWSECRRegex, line: `123.dkr.ecr.us-east-1.amazonaws.com`, expMatch: false})
+}
+
+func TestProcessor_AWSSESSmtp_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AWSSESSmtpRegex,
+		line:          xorDecode("KT8pBSk3LioFKjspKS01KD5nOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk="),
+	})
+}
+func TestProcessor_AWSSESSmtp_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AWSSESSmtpRegex, line: `ses smtp user short`, expMatch: false})
+}
+
+func TestProcessor_AWSLambdaFunctionURL_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AWSLambdaFunctionURLRegex,
+		line:          xorDecode("Mi4uKilgdXU7ODlraGk+Pzx0Njs3OD47dy8oNnQvKXc/Oykud2t0NTR0Oy0pdQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("Mi4uKilgdXU7ODlraGk+Pzx0Njs3OD47dy8oNnQvKXc/Oykud2t0NTR0Oy0pdQ=="),
+	})
+}
+func TestProcessor_AWSLambdaFunctionURL_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AWSLambdaFunctionURLRegex, line: `https://example.com/`, expMatch: false})
+}
+
+func TestProcessor_AzureSignalR_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AzureSignalRRegex,
+		line:          xorDecode("HzQ+KjUzNC5nMi4uKilgdXU3IykzPTQ7Nih3amt0KT8oLDM5P3QpMz00OzYodDQ/LmEbOTk/KSkRPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+H29nZ2E="),
+		expMatch:      true,
+		expSecret:     xorDecode("HzQ+KjUzNC5nMi4uKilgdXU3IykzPTQ7Nih3amt0KT8oLDM5P3QpMz00OzYodDQ/LmEbOTk/KSkRPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+H29nZ2E="),
+	})
+}
+func TestProcessor_AzureSignalR_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AzureSignalRRegex, line: `Endpoint=https://test.example.com;`, expMatch: false})
+}
+
+func TestProcessor_AzureEventHub_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AzureEventHubRegex,
+		line:          xorDecode("HzQ+KjUzNC5nKThgdXU3Iz8sPzQuMi84dzQpdCk/KCwzOT84Lyl0LTM0PjUtKXQ0Py51YQkyOyg/Phs5OT8pKRE/IxQ7Nz9nCDU1Lhc7NDs9PwkyOyg/Phs5OT8pKRE/I2EJMjsoPz4bOTk/KSkRPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvZ2c="),
+		expMatch:      true,
+		expSecret:     xorDecode("HzQ+KjUzNC5nKThgdXU3Iz8sPzQuMi84dzQpdCk/KCwzOT84Lyl0LTM0PjUtKXQ0Py51YQkyOyg/Phs5OT8pKRE/IxQ7Nz9nCDU1Lhc7NDs9PwkyOyg/Phs5OT8pKRE/I2EJMjsoPz4bOTk/KSkRPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvZ2c="),
+	})
+}
+func TestProcessor_AzureEventHub_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AzureEventHubRegex, line: `Endpoint=sb://test.example.com`, expMatch: false})
+}
+
+func TestProcessor_AzureServiceBus_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AzureServiceBusRegex,
+		line:          xorDecode("HzQ+KjUzNC5nKThgdXU3Iyk/KCwzOT84Lyl3NCl0KT8oLDM5PzgvKXQtMzQ+NS0pdDQ/LnVhCTI7KD8+Gzk5PykpET8jFDs3P2cINTUuFzs0Oz0/CTI7KD8+Gzk5PykpET8jYQkyOyg/Phs5OT8pKRE/I2ciA28gahs4GT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaWdn"),
+		expMatch:      true,
+		expSecret:     xorDecode("HzQ+KjUzNC5nKThgdXU3Iyk/KCwzOT84Lyl3NCl0KT8oLDM5PzgvKXQtMzQ+NS0pdDQ/LnVhCTI7KD8+Gzk5PykpET8jFDs3P2cINTUuFzs0Oz0/CTI7KD8+Gzk5PykpET8jYQkyOyg/Phs5OT8pKRE/I2ciA28gahs4GT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaWdn"),
+	})
+}
+func TestProcessor_AzureServiceBus_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AzureServiceBusRegex, line: `Endpoint=sb://invalid`, expMatch: false})
+}
+
+func TestProcessor_CloudflareCaKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CloudflareCaKeyRegex,
+		line:          xorDecode("LGt0anc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs="),
+		expMatch:      true,
+		expSecret:     xorDecode("LGt0anc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28ganc7GGk+H288HW0yE2MwEWs="),
+	})
+}
+func TestProcessor_CloudflareCaKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CloudflareCaKeyRegex, line: `v1.0-tooshortkey`, expMatch: false})
+}
+
+func TestProcessor_CloudflareR2_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CloudflareR2Regex,
+		line:          xorDecode("OTY1Lz48NjsoPwUoaAUpPzkoPy5nO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_CloudflareR2_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CloudflareR2Regex, line: `cloudflare_r2_secret=short`, expMatch: false})
+}
+
+func TestProcessor_StreamIOKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.StreamIOKeyRegex,
+		line:          xorDecode("KS4oPzs3BTsqMwUxPyNnO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_StreamIOKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.StreamIOKeyRegex, line: `stream_key=short`, expMatch: false})
+}
+
+func TestProcessor_PineconeKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PineconeKeyRegex,
+		line:          xorDecode("KjM0Pzk1ND8FMT8jZztrOGg5aT5udz9vPGx3O204Ync5Yz5qdz9rPGg7aThuOW8+bA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+	})
+}
+func TestProcessor_PineconeKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PineconeKeyRegex, line: `pinecone_key=not-a-uuid`, expMatch: false})
+}
+
+func TestProcessor_WeaviateKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.WeaviateKeyRegex,
+		line:          xorDecode("LT87LDM7Lj8FOyozBTE/I2c7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDWkiA28gahs4GT4f"),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+Hw=="),
+	})
+}
+func TestProcessor_WeaviateKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.WeaviateKeyRegex, line: `weaviate_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_QdrantKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.QdrantKeyRegex,
+		line:          xorDecode("Kz4oOzQuBTsqMwUxPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGob"),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGob"),
+	})
+}
+func TestProcessor_QdrantKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.QdrantKeyRegex, line: `qdrant_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_MilvusKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.MilvusKeyRegex,
+		line:          xorDecode("NzM2LC8pBTsqMwUxPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGob"),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGob"),
+	})
+}
+func TestProcessor_MilvusKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.MilvusKeyRegex, line: `milvus_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_DbtCloudToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DbtCloudTokenRegex,
+		line:          xorDecode("PjguBTk2NS8+BS41MT80ZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sO2s4aDlpPm4="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw7azhoOWk+bg=="),
+	})
+}
+func TestProcessor_DbtCloudToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DbtCloudTokenRegex, line: `dbt_cloud_token=short`, expMatch: false})
+}
+
+func TestProcessor_FivetranKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.FivetranKeyRegex,
+		line:          xorDecode("PDMsPy4oOzQFMT8jZzsYaT4fbzwdbTITYzARazYXaTQVbyoLbSgJYy4PaywNaSIDbyBqGzgZPh8="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA1pIgNvIGobOBk+Hw=="),
+	})
+}
+func TestProcessor_FivetranKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.FivetranKeyRegex, line: `fivetran_key=short`, expMatch: false})
+}
+
+func TestProcessor_AirbyteKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AirbyteKeyRegex,
+		line:          xorDecode("OzMoOCMuPwUzPmcbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoPLA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+	})
+}
+func TestProcessor_AirbyteKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AirbyteKeyRegex, line: `airbyte_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_StitchKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.StitchKeyRegex,
+		line:          xorDecode("KS4zLjkyPjsuOwU7KjMFMT8jZztrOAVoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bCIj"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4BWg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sIiM="),
+	})
+}
+func TestProcessor_StitchKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.StitchKeyRegex, line: `stitch_key=short`, expMatch: false})
+}
+
+func TestProcessor_CensusKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CensusKeyRegex,
+		line:          xorDecode("OT80KS8pBTsqMwUxPyNnOxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA0="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA0="),
+	})
+}
+func TestProcessor_CensusKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CensusKeyRegex, line: `census_api_key=short`, expMatch: false})
+}
+
+func TestProcessor_HightouchKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.HightouchKeyRegex,
+		line:          xorDecode("MjM9Mi41LzkyBTE/I2c7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA0="),
+	})
+}
+func TestProcessor_HightouchKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.HightouchKeyRegex, line: `hightouch_key=short`, expMatch: false})
+}
+
+func TestProcessor_CubeJSKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CubeJSKeyRegex,
+		line:          xorDecode("OS84PzApBSk/OSg/Lmc7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_CubeJSKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CubeJSKeyRegex, line: `cubejs_secret=short`, expMatch: false})
+}
+
+func TestProcessor_ApacheSupersetKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ApacheSupersetKeyRegex,
+		line:          xorDecode("KS8qPygpPy4FKT85KD8uBTE/I2c7GGk+H288HW0yE2MwEWs2F2k0FW8qC20oCWMuD2ssDQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("OxhpPh9vPB1tMhNjMBFrNhdpNBVvKgttKAljLg9rLA0="),
+	})
+}
+func TestProcessor_ApacheSupersetKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ApacheSupersetKeyRegex, line: `superset_secret_key=short`, expMatch: false})
+}
+
+// ========================================
+// E-commerce, DevInfra, DNS & Misc (Batch 9) Tests
+// ========================================
+
+func TestProcessor_AdyenKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AdyenKeyRegex,
+		line:          xorDecode("GwsfOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyAbGBkeHxwdEhMQEWtoaW5vbG1iY2o="),
+		expMatch:      true,
+		expSecret:     xorDecode("GwsfOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyAbGBkeHxwdEhMQEWtoaW5vbG1iY2o="),
+	})
+}
+func TestProcessor_AdyenKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AdyenKeyRegex, line: `AQE_tooshort`, expMatch: false})
+}
+
+func TestProcessor_WorldpayKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.WorldpayKeyRegex,
+		line:          xorDecode("LTUoNj4qOyMFOyozBTE/I2cbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoPLA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+	})
+}
+func TestProcessor_WorldpayKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.WorldpayKeyRegex, line: `not a worldpay key`, expMatch: false})
+}
+
+func TestProcessor_MollieKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.MollieKeyRegex,
+		line:          xorDecode("NjMsPwU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlu"),
+		expMatch:      true,
+		expSecret:     xorDecode("NjMsPwU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlu"),
+	})
+}
+func TestProcessor_MollieKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.MollieKeyRegex, line: `live_tooshort`, expMatch: false})
+}
+
+func TestProcessor_EcwidKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.EcwidKeyRegex,
+		line:          xorDecode("PzktMz4FOyozBTE/I2cpPzkoPy4FOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("KT85KD8uBTs4OT4/PD0yMzAxNjc0NSorKCkuLywtIiMgamtoaW5vbG0="),
+	})
+}
+func TestProcessor_EcwidKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.EcwidKeyRegex, line: `ecwid key=short`, expMatch: false})
+}
+
+func TestProcessor_SwellKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.SwellKeyRegex,
+		line:          xorDecode("KS0/NjYFOyozBTE/I2cbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoPLA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+	})
+}
+func TestProcessor_SwellKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.SwellKeyRegex, line: `swell key=short`, expMatch: false})
+}
+
+func TestProcessor_BigCartelKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.BigCartelKeyRegex,
+		line:          xorDecode("ODM9OTsoLj82BTE/I2cbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoPLA0i"),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_BigCartelKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.BigCartelKeyRegex, line: `bigcartel key=short`, expMatch: false})
+}
+
+func TestProcessor_PodiaKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PodiaKeyRegex,
+		line:          xorDecode("KjU+MzsFOyozBTE/I2cbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoPLA0i"),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_PodiaKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PodiaKeyRegex, line: `podia key=short`, expMatch: false})
+}
+
+func TestProcessor_ShopifyPartnerKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ShopifyPartnerKeyRegex,
+		line:          xorDecode("KTIqKSkFajtrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz4="),
+		expMatch:      true,
+		expSecret:     xorDecode("KTIqKSkFajtrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz4="),
+	})
+}
+func TestProcessor_ShopifyPartnerKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ShopifyPartnerKeyRegex, line: `shpss_tooshort`, expMatch: false})
+}
+
+func TestProcessor_BuildkiteAgent_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.BuildkiteAgentRegex,
+		line:          xorDecode("OC8zNj4xMy4/BS41MT80ZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sP208YjtjOGo="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+	})
+}
+func TestProcessor_BuildkiteAgent_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.BuildkiteAgentRegex, line: `buildkite key=short`, expMatch: false})
+}
+
+func TestProcessor_JenkinsAPIKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.JenkinsAPIKeyRegex,
+		line:          xorDecode("MD80MTM0KQU7KjMFMT8jZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5s"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_JenkinsAPIKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.JenkinsAPIKeyRegex, line: `jenkins key=short`, expMatch: false})
+}
+
+func TestProcessor_TeamCityToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.TeamCityTokenRegex,
+		line:          xorDecode("Lj87NzkzLiMFLjUxPzRnPyMQMjgdOTMVMxAJDyATaxQzEykTNAhvORkTbBMxKgIMGRMpEzcuKgAZE2wTMWsPDQIyFTs3FyMONyoMFB9vbAsOFBUMaxxuDjQqGTsfYw8ODhg7DGoqNQ4PCBE7DDYrCzcyCgwdKSAODAgcFw9jGAoOajM8Cw=="),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMjgdOTMVMxAJDyATaxQzEykTNAhvORkTbBMxKgIMGRMpEzcuKgAZE2wTMWsPDQIyFTs3FyMONyoMFB9vbAsOFBUMaxxuDjQqGTsfYw8ODhg7DGoqNQ4PCBE7DDYrCzcyCgwdKSAODAgcFw9jGAoOajM8Cw=="),
+	})
+}
+func TestProcessor_TeamCityToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.TeamCityTokenRegex, line: `teamcity token=eyJshort`, expMatch: false})
+}
+
+func TestProcessor_NxCloudToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.NxCloudTokenRegex,
+		line:          xorDecode("NCI5NjUvPgUuNTE/NGcbODlraGkePzxub2wdMjNtYmMQMTZqa2gXNDVpbm8KKyhsbWI="),
+		expMatch:      true,
+		expSecret:     xorDecode("Gzg5a2hpHj88bm9sHTIzbWJjEDE2amtoFzQ1aW5vCisobG1i"),
+	})
+}
+func TestProcessor_NxCloudToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.NxCloudTokenRegex, line: `nxcloud key=short`, expMatch: false})
+}
+
+func TestProcessor_TurborepoToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.TurborepoTokenRegex,
+		line:          xorDecode("Li8oODUFLjUxPzRnGzg5a2hpHj88bm9sHTIzbWJjEDE2amtoFzQ1aW5vCisobG1i"),
+		expMatch:      true,
+		expSecret:     xorDecode("Gzg5a2hpHj88bm9sHTIzbWJjEDE2amtoFzQ1aW5vCisobG1i"),
+	})
+}
+func TestProcessor_TurborepoToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.TurborepoTokenRegex, line: `turbo key=short`, expMatch: false})
+}
+
+func TestProcessor_DepotDevToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DepotDevTokenRegex,
+		line:          xorDecode("Pj8qNS4FLjUxPzRnGzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_DepotDevToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DepotDevTokenRegex, line: `depot key=short`, expMatch: false})
+}
+
+func TestProcessor_WarpBuildToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.WarpBuildTokenRegex,
+		line:          xorDecode("LTsoKjgvMzY+BS41MT80Zxs4axk+aB88aR0ybhMwbxE2bBc0bRUqYgsoYwkuag8sDSI="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_WarpBuildToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.WarpBuildTokenRegex, line: `warpbuild key=short`, expMatch: false})
+}
+
+func TestProcessor_GiteaToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.GiteaTokenRegex,
+		line:          xorDecode("PTMuPzsFLjUxPzRnO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+	})
+}
+func TestProcessor_GiteaToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.GiteaTokenRegex, line: `gitea key=short`, expMatch: false})
+}
+
+func TestProcessor_ForgejoToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ForgejoTokenRegex,
+		line:          xorDecode("PDUoPT8wNQUuNTE/NGc7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bD9tPGI7Yzhq"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+	})
+}
+func TestProcessor_ForgejoToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ForgejoTokenRegex, line: `forgejo key=short`, expMatch: false})
+}
+
+func TestProcessor_NamecheapKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.NamecheapKeyRegex,
+		line:          xorDecode("NDs3PzkyPzsqBTE/I2c7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bD9tPGI="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxi"),
+	})
+}
+func TestProcessor_NamecheapKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.NamecheapKeyRegex, line: `namecheap key=short`, expMatch: false})
+}
+
+func TestProcessor_GandiKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.GandiKeyRegex,
+		line:          xorDecode("PTs0PjMFMT8jZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxo"),
+	})
+}
+func TestProcessor_GandiKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.GandiKeyRegex, line: `gandi key=short`, expMatch: false})
+}
+
+func TestProcessor_DNSimpleKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DNSimpleKeyRegex,
+		line:          xorDecode("PjQpMzcqNj8FMT8jZztrOGg5aT5uP288bDttOGI5Yz5qP2s8aDtpOG45bz5sP208YjtjOGo="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+	})
+}
+func TestProcessor_DNSimpleKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DNSimpleKeyRegex, line: `dnsimple key=short`, expMatch: false})
+}
+
+func TestProcessor_NS1Key_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.NS1KeyRegex,
+		line:          xorDecode("NClrBTsqMwUxPyNnGzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+	})
+}
+func TestProcessor_NS1Key_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.NS1KeyRegex, line: `ns1 key=short`, expMatch: false})
+}
+
+func TestProcessor_DeepLKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.DeepLKeyRegex,
+		line:          xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5sYDwi"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5sYDwi"),
+	})
+}
+func TestProcessor_DeepLKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.DeepLKeyRegex, line: `a1b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6`, expMatch: false})
+}
+
+func TestProcessor_HunterIOKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.HunterIOKeyRegex,
+		line:          xorDecode("Mi80Lj8oBTsqMwUxPyNnO2s4aDlpPm4/bzxsOwU4YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsOwU4YjljPmo/azxoO2k4bjlvPmw/bTxiO2M4ag=="),
+	})
+}
+func TestProcessor_HunterIOKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.HunterIOKeyRegex, line: `hunter key=short`, expMatch: false})
+}
+
+func TestProcessor_ZeroBounceKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.ZeroBounceKeyRegex,
+		line:          xorDecode("ID8oNTg1LzQ5PwUxPyNnO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_ZeroBounceKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.ZeroBounceKeyRegex, line: `zerobounce key=short`, expMatch: false})
+}
+
+func TestProcessor_AbstractAPIKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.AbstractAPIKeyRegex,
+		line:          xorDecode("OzgpLig7OS4FOyozBTE/I2c7azhoOWk+bj9vPGw7bThiOWM+aj9rPGg7aThuOW8+bA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_AbstractAPIKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.AbstractAPIKeyRegex, line: `abstract key=short`, expMatch: false})
+}
+
+func TestProcessor_IPStackKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.IPStackKeyRegex,
+		line:          xorDecode("MyopLjs5MQUxPyNnO2s4aDlpPm4/bzxsG20YYhljHmofaxxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsG20YYhljHmofaxxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_IPStackKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.IPStackKeyRegex, line: `ipstack key=short`, expMatch: false})
+}
+
+func TestProcessor_PositionStackKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.PositionStackKeyRegex,
+		line:          xorDecode("KjUpMy4zNTQpLjs5MQUxPyNnGzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDyw="),
+	})
+}
+func TestProcessor_PositionStackKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.PositionStackKeyRegex, line: `positionstack key=short`, expMatch: false})
+}
+
+func TestProcessor_MediaStackKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.MediaStackKeyRegex,
+		line:          xorDecode("Nz8+MzspLjs5MQUxPyNnO2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm4/bzxsO204YjljPmo/azxoO2k4bjlvPmw="),
+	})
+}
+func TestProcessor_MediaStackKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.MediaStackKeyRegex, line: `mediastack key=short`, expMatch: false})
+}
+
+func TestProcessor_CalendlyKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.CalendlyKeyRegex,
+		line:          xorDecode("OTs2PzQ+NiMFLjUxPzRnPyMQMjgdOTMVMxAJDyATaxQzEykTNAhvORkTbBMxKgIMGRMpEzcuKgAZE2wTMWsPDQIyFTs3FyMONyoMFB9vbAsOFBUMaxxuDjQqGTsfYw8ODhg7DGoqNQ4PCBE7DDYrCzcyCgwdKSAODAgcFw9jGAoOajM8C3Q/IxAqOWkXMxUzEDU+EggtOSA1LBZoHGs+HT0vA2gcKQANbzE4EjEvA2hjLhYjEykTNBRrAzMTbBMwHyMXIAtrFDA5bhUOGzMWGRAyPg0LMxUzEDADDSI2ODcIKT8JEykTNwxuORkTbBcOOSIXHhstFx4bLRcZLTM7DRxqEzA1IhQgG28XHhstFx4bLTwLdDEQHmkiYyMABTcUbSsIaCoNbywOYjsYGWs+HzwdMhMwEQ=="),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMjgdOTMVMxAJDyATaxQzEykTNAhvORkTbBMxKgIMGRMpEzcuKgAZE2wTMWsPDQIyFTs3FyMONyoMFB9vbAsOFBUMaxxuDjQqGTsfYw8ODhg7DGoqNQ4PCBE7DDYrCzcyCgwdKSAODAgcFw9jGAoOajM8C3Q/IxAqOWkXMxUzEDU+EggtOSA1LBZoHGs+HT0vA2gcKQANbzE4EjEvA2hjLhYjEykTNBRrAzMTbBMwHyMXIAtrFDA5bhUOGzMWGRAyPg0LMxUzEDADDSI2ODcIKT8JEykTNwxuORkTbBcOOSIXHhstFx4bLRcZLTM7DRxqEzA1IhQgG28XHhstFx4bLTwLdDEQHmkiYyMABTcUbSsIaCoNbywOYjsYGWs+HzwdMhMwEQ=="),
+	})
+}
+func TestProcessor_CalendlyKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.CalendlyKeyRegex, line: `calendly token=eyJshort`, expMatch: false})
+}
+
+func TestProcessor_LoomKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.LoomKeyRegex,
+		line:          xorDecode("NjU1NwU7KjMFMT8jZxs4axk+aB88aR0ybhMwbxE2bBc0bRUqYgsoYwkuag8sDSI="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_LoomKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.LoomKeyRegex, line: `loom key=short`, expMatch: false})
+}
+
+func TestProcessor_MuxVideoKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.MuxVideoKeyRegex,
+		line:          xorDecode("Ny8iBS41MT80ZztrOGg5aT5udz9vPGx3O204Ync5Yz5qdz9rPGg7aThuOW8+bA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+	})
+}
+func TestProcessor_MuxVideoKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.MuxVideoKeyRegex, line: `mux token=not-a-uuid`, expMatch: false})
+}
+
+func TestProcessor_BunnyCDNKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.BunnyCDNKeyRegex,
+		line:          xorDecode("OC80NCMFMT8jZztrOGg5aT5udz9vPGx3O204Ync5Yz5qdz9rPGg7aThuOW8+bDs4"),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5sOzg="),
+	})
+}
+func TestProcessor_BunnyCDNKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.BunnyCDNKeyRegex, line: `bunny key=not-a-uuid`, expMatch: false})
+}
+
+func TestProcessor_KeyCDNKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.KeyCDNKeyRegex,
+		line:          xorDecode("MT8jOT40BTsqMwUxPyNnGzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qDywNIg=="),
+	})
+}
+func TestProcessor_KeyCDNKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.KeyCDNKeyRegex, line: `keycdn key=short`, expMatch: false})
+}
+
+func TestProcessor_StackPathKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.StackPathKeyRegex,
+		line:          xorDecode("KS47OTEqOy4yBTE/I2c7azhoOWk+bnc/bzxsdzttOGJ3OWM+anc/azxoO2k4bjlvPmw="),
+		expMatch:      true,
+		expSecret:     xorDecode("O2s4aDlpPm53P288bHc7bThidzljPmp3P2s8aDtpOG45bz5s"),
+	})
+}
+func TestProcessor_StackPathKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.StackPathKeyRegex, line: `stackpath key=not-a-uuid`, expMatch: false})
+}
+
+func TestProcessor_BackblazeB2Key_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.BackblazeB2KeyRegex,
+		line:          xorDecode("ODs5MTg2OyA/BTE/I2cbOGsZPmgfPGkdMm4TMG8RNmwXNG0VKmILKGMJLmoC"),
+		expMatch:      true,
+		expSecret:     xorDecode("GzhrGT5oHzxpHTJuEzBvETZsFzRtFSpiCyhjCS5qAg=="),
+	})
+}
+func TestProcessor_BackblazeB2Key_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.BackblazeB2KeyRegex, line: `backblaze key=short`, expMatch: false})
+}
+
+func TestProcessor_WasabiAccessKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.WasabiAccessKeyRegex,
+		line:          xorDecode("LTspOzgzBTs5OT8pKQUxPyNnGxgZHh8cHRITEGtoaW5vbG1iY2o="),
+		expMatch:      true,
+		expSecret:     xorDecode("GxgZHh8cHRITEGtoaW5vbG1iY2o="),
+	})
+}
+func TestProcessor_WasabiAccessKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.WasabiAccessKeyRegex, line: `wasabi key=SHORT`, expMatch: false})
+}

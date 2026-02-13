@@ -417,6 +417,105 @@ const (
 	ZohoTokenRegex
 	GoDaddyAPIKeyRegex
 
+	// Error Tracking, Auth & Messaging (Batch 7)
+	AirbrakeProjectKeyRegex
+	AirbrakeUserKeyRegex
+	BugsnagKeyRegex
+	RaygunKeyRegex
+	RollbarTokenRegex
+	AppSignalKeyRegex
+	HoneybadgerKeyRegex
+	AppDynamicsKeyRegex
+	DynatraceTokenRegex
+	NewRelicBrowserKeyRegex
+	NewRelicLicenseKeyRegex
+	OnePasswordConnectTokenRegex
+	OnePasswordServiceAccountRegex
+	LastPassKeyRegex
+	DuoSecurityKeyRegex
+	ForgeRockKeyRegex
+	KeycloakClientSecretRegex
+	FirebaseAuthCustomTokenRegex
+	SupabaseServiceRoleKeyRegex
+	PusherChannelKeyRegex
+	PusherSubscriptionKeyRegex
+	AgoraKeyRegex
+	AblyKeyRegex
+	PubNubKeyRegex
+	DailyCoKeyRegex
+	LivekitKeyRegex
+
+	// CRM, Cloud & Data (Batch 8)
+	PipedriveKeyRegex
+	CloseCRMKeyRegex
+	CopperKeyRegex
+	ApolloIOKeyRegex
+	ClearbitKeyRegex
+	PeopleDataLabsKeyRegex
+	RocketReachKeyRegex
+	OutreachIOKeyRegex
+	SalesLoftKeyRegex
+	GongKeyRegex
+	AWSECRRegex
+	AWSSESSmtpRegex
+	AWSLambdaFunctionURLRegex
+	AzureSignalRRegex
+	AzureEventHubRegex
+	AzureServiceBusRegex
+	CloudflareCaKeyRegex
+	CloudflareR2Regex
+	StreamIOKeyRegex
+	PineconeKeyRegex
+	WeaviateKeyRegex
+	QdrantKeyRegex
+	MilvusKeyRegex
+	DbtCloudTokenRegex
+	FivetranKeyRegex
+	AirbyteKeyRegex
+	StitchKeyRegex
+	CensusKeyRegex
+	HightouchKeyRegex
+	CubeJSKeyRegex
+	ApacheSupersetKeyRegex
+
+	// E-commerce, DevInfra, DNS & Misc (Batch 9)
+	AdyenKeyRegex
+	WorldpayKeyRegex
+	MollieKeyRegex
+	EcwidKeyRegex
+	SwellKeyRegex
+	BigCartelKeyRegex
+	PodiaKeyRegex
+	ShopifyPartnerKeyRegex
+	BuildkiteAgentRegex
+	JenkinsAPIKeyRegex
+	TeamCityTokenRegex
+	NxCloudTokenRegex
+	TurborepoTokenRegex
+	DepotDevTokenRegex
+	WarpBuildTokenRegex
+	GiteaTokenRegex
+	ForgejoTokenRegex
+	NamecheapKeyRegex
+	GandiKeyRegex
+	DNSimpleKeyRegex
+	NS1KeyRegex
+	DeepLKeyRegex
+	HunterIOKeyRegex
+	ZeroBounceKeyRegex
+	AbstractAPIKeyRegex
+	IPStackKeyRegex
+	PositionStackKeyRegex
+	MediaStackKeyRegex
+	CalendlyKeyRegex
+	LoomKeyRegex
+	MuxVideoKeyRegex
+	BunnyCDNKeyRegex
+	KeyCDNKeyRegex
+	StackPathKeyRegex
+	BackblazeB2KeyRegex
+	WasabiAccessKeyRegex
+
 	// File Signature processors
 	PEMFileExtensionFileSig
 	PKCS12FileExtensionFileSig
