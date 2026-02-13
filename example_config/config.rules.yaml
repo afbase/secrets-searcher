@@ -41,8 +41,44 @@ search:
     # Public secret passwords (TODO make this a core rule)
     - '(SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED)' # Facebook React password
 
-    # Pantheon exludes
-    - '^devops/k8s/secrets/non-prod/'
+    # Images and media files
+    - '\.(?:png|jpe?g|ico|webp|avif|tiff?|bmp)$'
+    - '\.(?:mp4|webm|avi|mov)$'
+    - '\.(?:ttf|eot|otf)$'
+
+    # Python artifacts
+    - '__pycache__/'
+    - '\.pyc$'
+    - '\.egg-info/'
+
+    # ML model artifacts (binary weight files, not secrets)
+    - '\.(?:onnx|h5|hdf5|safetensors|ckpt|pt|pth)$'
+    - '\.(?:npy|npz|pkl|pickle)$'
+
+    # Protobuf generated code
+    - '_pb2\.pyi?$'
+    - '\.pb\.go$'
+
+    # Infrastructure cache
+    - '\.terraform/'
+    - '\.terragrunt-cache/'
+
+    # dbt generated output
+    - '\btarget/'
+    - '\bdbt_packages/'
+
+    # Additional lock files
+    - '\bpoetry\.lock$'
+    - '\bpnpm-lock\.yaml$'
+    - '\byarn\.lock$'
+
+    # Build/output directories
+    - '\b\.next/'
+    - '\bcoverage/'
+
+    # Documentation (unlikely to contain real secrets)
+    - '\bCHANGELOG'
+    - '\bLICENSE'
 
   whitelist-secret-ids:
 

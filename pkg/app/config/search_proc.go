@@ -9,12 +9,13 @@ import (
 )
 
 type ProcessorConfig struct {
-	Name                   string `param:"name"`
-	Processor              string `param:"processor"`
-	RegexProcessorConfig   `param:",squash"`
-	PEMProcessorConfig     `param:",squash"`
-	SetterProcessorConfig  `param:",squash"`
-	EntropyProcessorConfig `param:",squash"`
+	Name                       string `param:"name"`
+	Processor                  string `param:"processor"`
+	RegexProcessorConfig       `param:",squash"`
+	PEMProcessorConfig         `param:",squash"`
+	SetterProcessorConfig      `param:",squash"`
+	EntropyProcessorConfig     `param:",squash"`
+	FileSignatureProcessorConfig `param:",squash"`
 }
 
 func (procCfg *ProcessorConfig) GetName() string {
@@ -43,6 +44,8 @@ func (procCfg *ProcessorConfig) getSubCfg() (result va.Validatable) {
 		result = &procCfg.SetterProcessorConfig
 	case search.Entropy.String():
 		result = &procCfg.EntropyProcessorConfig
+	case search.FileSignature.String():
+		result = &procCfg.FileSignatureProcessorConfig
 	default:
 		panic("unknown processor: " + procCfg.Processor)
 	}
@@ -107,5 +110,21 @@ func (entropyProcCfg *EntropyProcessorConfig) Validate() (err error) {
 		va.Field(&entropyProcCfg.WordLengthThreshold, va.Required),
 		va.Field(&entropyProcCfg.Threshold),
 		va.Field(&entropyProcCfg.WhitelistCodeMatch, va.Each(valid.RegexpPattern)),
+	)
+}
+
+//
+// FileSignature processor
+
+type FileSignatureProcessorConfig struct {
+	Part        string `param:"part"`         // "extension", "filename", or "path"
+	Match       string `param:"match"`        // exact match value
+	RegexString string `param:"regex"`        // regex pattern for path matching
+	Description string `param:"description"`  // human-readable description
+}
+
+func (fsProcCfg *FileSignatureProcessorConfig) Validate() (err error) {
+	return va.ValidateStruct(fsProcCfg,
+		va.Field(&fsProcCfg.Part, va.Required, va.In("extension", "filename", "path")),
 	)
 }

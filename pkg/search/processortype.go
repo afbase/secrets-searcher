@@ -9,6 +9,7 @@ const (
 	PEM
 	Setter
 	Entropy
+	FileSignature
 )
 
 func ProcessorTypes() []ProcessorType {
@@ -17,6 +18,7 @@ func ProcessorTypes() []ProcessorType {
 		PEM,
 		Setter,
 		Entropy,
+		FileSignature,
 	}
 }
 

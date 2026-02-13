@@ -12,6 +12,7 @@ import (
 	"github.com/afbase/secrets-searcher/pkg/search"
 	"github.com/afbase/secrets-searcher/pkg/search/contract"
 	"github.com/afbase/secrets-searcher/pkg/search/processor/entropy"
+	"github.com/afbase/secrets-searcher/pkg/search/processor/filesig"
 	"github.com/afbase/secrets-searcher/pkg/search/processor/pem"
 	"github.com/afbase/secrets-searcher/pkg/search/processor/regex"
 	"github.com/afbase/secrets-searcher/pkg/search/processor/setter"
@@ -67,6 +68,8 @@ func Proc(procCfg *config.ProcessorConfig, targets *search.TargetSet, processors
 		result, err = ProcSetterWrapped(procCfg.Name, &procCfg.SetterProcessorConfig, targets, processorLog)
 	case search.Entropy.String():
 		result = ProcEntropy(procCfg.Name, &procCfg.EntropyProcessorConfig, processorLog)
+	case search.FileSignature.String():
+		result = ProcFileSignature(procCfg.Name, &procCfg.FileSignatureProcessorConfig, processorLog)
 	default:
 		err = errors.Errorv("unknown processor", procCfg.Processor)
 		return
@@ -162,4 +165,18 @@ func CodeWhitelist(whitelistCodeMatch []string, baseLog logg.Logg) *search.CodeW
 func LineProcessor(proc contract.LineProcessorI, baseLog logg.Logg) *search.LineProcessorWrapper {
 	lineProcessorLog := baseLog.AddPrefixPath("line-processor")
 	return search.NewLineProcessorWrapper(proc, lineProcessorLog)
+}
+
+//
+// FileSignature processor
+
+func ProcFileSignature(name string, fsProcCfg *config.FileSignatureProcessorConfig, processorLog logg.Logg) (result contract.ProcessorI) {
+	return filesig.NewProcessor(
+		name,
+		fsProcCfg.Part,
+		fsProcCfg.Match,
+		fsProcCfg.RegexString,
+		fsProcCfg.Description,
+		processorLog,
+	)
 }

@@ -12,11 +12,12 @@ func _() {
 	_ = x[PEM-1]
 	_ = x[Setter-2]
 	_ = x[Entropy-3]
+	_ = x[FileSignature-4]
 }
 
-const _ProcessorType_name = "RegexPEMSetterEntropy"
+const _ProcessorType_name = "RegexPEMSetterEntropyFileSignature"
 
-var _ProcessorType_index = [...]uint8{0, 5, 8, 14, 21}
+var _ProcessorType_index = [...]uint8{0, 5, 8, 14, 21, 34}
 
 func (i ProcessorType) String() string {
 	idx := int(i) - 0

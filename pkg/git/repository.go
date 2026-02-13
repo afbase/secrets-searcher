@@ -56,7 +56,7 @@ func (r *Repository) FetchAll(url string) (err error) {
 		return
 	}
 
-	if fetchErr := r.gitRepo.Fetch(&gitvendor.FetchOptions{}); fetchErr != nil && fetchErr != gitvendor.NoErrAlreadyUpToDate {
+	if fetchErr := r.gitRepo.Fetch(&gitvendor.FetchOptions{Auth: r.git.auth}); fetchErr != nil && fetchErr != gitvendor.NoErrAlreadyUpToDate {
 		err = errors.Wrap(fetchErr, "unable to fetch all")
 		return
 	}

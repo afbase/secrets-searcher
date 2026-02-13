@@ -55,7 +55,7 @@ func (p *GithubProvider) GetRepositories(repoFilter *manip.SliceFilter) (result 
 
 		result = append(result, &source.RepoInfo{
 			Name:      ghRepo.GetName(),
-			RemoteURL: ghRepo.GetSSHURL(),
+			RemoteURL: ghRepo.GetCloneURL(),
 		})
 	}
 

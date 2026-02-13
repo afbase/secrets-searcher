@@ -16,6 +16,7 @@ import (
 	reporterpkg "github.com/afbase/secrets-searcher/pkg/reporter"
 	searchpkg "github.com/afbase/secrets-searcher/pkg/search"
 	sourcepkg "github.com/afbase/secrets-searcher/pkg/source"
+	githttp "gopkg.in/src-d/go-git.v4/plumbing/transport/http"
 )
 
 type AppParams struct {
@@ -83,7 +84,15 @@ func App(appCfg *config.AppConfig) (result *AppParams, err error) {
 	secretIDFilter := SecretIDFilter(&appCfg.SearchConfig)
 
 	// Git service
-	git := gitpkg.New(gitLog)
+	var git *gitpkg.Git
+	if appCfg.SourceConfig.Provider == sourcepkg.Github.Value() {
+		git = gitpkg.NewWithAuth(gitLog, &githttp.BasicAuth{
+			Username: "x-access-token",
+			Password: appCfg.SourceConfig.APIToken,
+		})
+	} else {
+		git = gitpkg.New(gitLog)
+	}
 
 	// Interact service
 	interact := interactpkg.New(appCfg.Interactive, interactLog)

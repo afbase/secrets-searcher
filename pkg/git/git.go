@@ -8,12 +8,20 @@ import (
 )
 
 type Git struct {
-	log logg.Logg
+	log  logg.Logg
+	auth gittransport.AuthMethod
 }
 
 func New(log logg.Logg) *Git {
 	return &Git{
 		log: log,
+	}
+}
+
+func NewWithAuth(log logg.Logg, auth gittransport.AuthMethod) *Git {
+	return &Git{
+		log:  log,
+		auth: auth,
 	}
 }
 
@@ -30,7 +38,7 @@ func (g *Git) OpenRepository(cloneDir string) (result *Repository, err error) {
 
 func (g *Git) Clone(url, cloneDir string) (result *Repository, err error) {
 	var gitRepo *gitvendor.Repository
-	co := &gitvendor.CloneOptions{URL: url}
+	co := &gitvendor.CloneOptions{URL: url, Auth: g.auth}
 	if gitRepo, err = gitvendor.PlainClone(cloneDir, false, co); err != nil {
 		err = errors.Wrapf(err, "unable to clone from %s to %s", url, cloneDir)
 		return

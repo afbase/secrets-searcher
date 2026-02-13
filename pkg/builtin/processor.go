@@ -13,6 +13,7 @@ func processorDefinitions() (result []*config.ProcessorConfig) {
 	result = append(result, setterProcessorDefinitions()...)
 	result = append(result, pemProcessorDefinitions()...)
 	result = append(result, regexProcessorDefinitions()...)
+	result = append(result, fileSignatureProcessorDefinitions()...)
 	//result = append(result, entropyProcessorDefinitions()...)
 	return
 }
@@ -652,7 +653,7 @@ func setterProcessorDefinitions() (result []*config.ProcessorConfig) {
 	}
 }
 
-// Regex processor definitions
+// PEM processor definitions
 func pemProcessorDefinitions() (result []*config.ProcessorConfig) {
 	return []*config.ProcessorConfig{
 
@@ -691,262 +692,13 @@ func pemProcessorDefinitions() (result []*config.ProcessorConfig) {
 				PEMType: "PGP PRIVATE KEY BLOCK",
 			},
 		},
-	}
-}
 
-// Regex processor definitions
-func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
-	return []*config.ProcessorConfig{
-
-		// Slack token regex
+		// DSA Private Key PEM processor
 		{
-			Name:      SlackTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(xox[p|b|o|a]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32})`,
-			},
-		},
-
-		// Facebook OAuth regex
-		{
-			Name:      FacebookOAuthRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K].*['|"][0-9a-f]{32}['|"]`,
-			},
-		},
-
-		// Google OAuth regex
-		{
-			Name:      GoogleOAuthRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[t|T][w|W][i|I][t|T][t|T][e|E][r|R].*['|"][0-9a-zA-Z]{35,44}['|"]`,
-			},
-		},
-
-		// Twitter regex
-		{
-			Name:      TwitterRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `("client_secret":"[a-zA-Z0-9-_]{24}")`,
-			},
-		},
-
-		// Heroku API Key regex
-		{
-			Name:      HerokuAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[h|H][e|E][r|R][o|O][k|K][u|U].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}`,
-			},
-		},
-
-		// Slack Webhook regex
-		{
-			Name:      SlackWebhookRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}`,
-			},
-		},
-
-		// GCP Service Account regex
-		{
-			Name:      GCPServiceAccountRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?s){\s*"type": ?"service_account",.*"private_key_id": ?"([^"]+)"`,
-			},
-		},
-
-		// Twilio API Key regex
-		{
-			Name:      TwilioAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `SK[a-z0-9]{32}`,
-			},
-		},
-
-		// URL Password regex
-		{
-			Name:      URLPasswordRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[a-z](?:[a-z]|\d|\+|-|\.)*://([a-zA-z0-9\-_]{4,20}:[a-zA-z0-9\-_]{4,20})@[a-zA-z0-9:.\-_/]*`,
-			},
-		},
-
-		// Generic Secret regex
-		{
-			Name:      GenericSecretRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[s|S][e|E][c|C][r|R][e|E][t|T].*['|"][0-9a-zA-Z]{32,45}['|"]`,
-			},
-		},
-
-		// AWS Access Key ID regex
-		{
-			Name:      AWSAccessKeyIDRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `((?:ASIA|AKIA|AROA|AIDA)([A-Z0-9]{16}))`,
-			},
-		},
-
-		// AWS Secret Access Key regex
-		{
-			Name:      AWSSecretKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]`,
-			},
-		},
-
-		// AWS MWS Auth Token regex
-		{
-			Name:      AWSMWSAuthTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`,
-			},
-		},
-
-		// GitHub Token regex
-		{
-			Name:      GitHubTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)github[_\s]*(token|key|secret|pat)[\s]*[=:>]*[\s]*['\"]?([a-zA-Z0-9_]{35,})['\"]?`,
-			},
-		},
-
-		// GitHub OAuth Token regex
-		{
-			Name:      GitHubOAuthRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[g|G][i|I][t|T][h|H][u|U][b|B].*['\"][0-9a-zA-Z]{35,40}['\"]`,
-			},
-		},
-
-		// LinkedIn Client ID regex
-		{
-			Name:      LinkedInClientIDRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]`,
-			},
-		},
-
-		// LinkedIn Secret Key regex
-		{
-			Name:      LinkedInSecretKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]`,
-			},
-		},
-
-		// Stripe API Key regex
-		{
-			Name:      StripeAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `(?i)(sk|pk)_(test|live)_[0-9a-zA-Z]{24,}`,
-			},
-		},
-
-		// Square Access Token regex
-		{
-			Name:      SquareAccessTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `sq0atp-[0-9A-Za-z\-_]{22}`,
-			},
-		},
-
-		// Square OAuth Secret regex
-		{
-			Name:      SquareOAuthSecretRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `sq0csp-[0-9A-Za-z\-_]{43}`,
-			},
-		},
-
-		// PayPal Braintree Access Token regex
-		{
-			Name:      PayPalBraintreeAccessTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}`,
-			},
-		},
-
-		// SendGrid API Key regex
-		{
-			Name:      SendGridAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `SG\.[0-9A-Za-z\-_]{22}\.[0-9A-Za-z\-_]{43}`,
-			},
-		},
-
-		// MailGun API Key regex
-		{
-			Name:      MailGunAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `key-[0-9a-zA-Z]{32}`,
-			},
-		},
-
-		// MailChimp API Key regex
-		{
-			Name:      MailChimpAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `[0-9a-f]{32}-us[0-9]{1,2}`,
-			},
-		},
-
-		// Digital Ocean Personal Access Token regex
-		{
-			Name:      DigitalOceanPATRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `\b(dop_v1_[a-f0-9]{64})\b`,
-			},
-		},
-
-		// Digital Ocean OAuth Token regex
-		{
-			Name:      DigitalOceanOAuthRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `\b(doo_v1_[a-f0-9]{64})\b`,
-			},
-		},
-
-		// Digital Ocean Refresh Token regex
-		{
-			Name:      DigitalOceanRefreshTokenRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `\b(dor_v1_[a-f0-9]{64})\b`,
-			},
-		},
-
-		// NuGet API Key regex
-		{
-			Name:      NuGetAPIKeyRegex.String(),
-			Processor: search.Regex.String(),
-			RegexProcessorConfig: config.RegexProcessorConfig{
-				RegexString: `oy2[a-z0-9]{43}`,
+			Name:      DSAPrivateKeyPEM.String(),
+			Processor: search.PEM.String(),
+			PEMProcessorConfig: config.PEMProcessorConfig{
+				PEMType: "DSA PRIVATE KEY",
 			},
 		},
 	}
@@ -965,42 +717,7 @@ func entropyProcessorDefinitions() (result []*config.ProcessorConfig) {
 				WordLengthThreshold: 20,
 				Threshold:           4.5,
 				SkipPEMs:            true,
-				WhitelistCodeMatch:  []string{
-
-					//// Characters and obvious keyboard leans (order from more to less specific)
-					//`(ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\+/=)`,
-					//`(ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\+/)`,
-					//`(0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz)`,
-					//`(abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789)`,
-					//`(abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789)`,
-					//`(abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ)`,
-					//`(abcdefghijklmnopqrstuvwxyz0123456789)`,
-					//`(ABCDEFGHIJKLMNOPQRSTUVWXYZ)`,
-					//`(abcdefghijklmnopqrstuvwxyz)`,
-					//`(BdgGhHiIjLmnOrsStTUwWYyZz)`,
-					//`(BdgGhHiIjLmnNsStTUwWYyz)`,
-					//`(AaBdgGhHiIjLmnrstTUYyZz)`,
-					//
-					//// Pantheon bindings
-					//`/srv/bindings/[a-fA-F0-9]+`,
-					//
-					//// TODO Add a file path conditional to these processors, since this is only OK in a .travis.yml
-					//`- secure: "([^"]+)"`,
-					//`\.dockerconfigjson: secure: "([^"]+)"`,
-					//
-					//// TODO: These all need to be evaluated, so they are here until we reach that stage
-					//`"(?:access_token)": "([^"]+)"`,
-					//`(?:target_url|certificate-authority-data): (.+)$`,
-					//`''(?:secret|read_device_credentials)'': ''[^"]+''`,
-					//`proxy_set_header X-Frontend-Secret ([a-zA-Z0-9+/=]+)?`,
-					//`auth0-client-id-dashboard=(.+)`,
-					//`\b(?:ssh-rsa|ssh-ed25519) ''?AAAA[0-9A-Za-z+/]+[=]{0,3}\b`,
-					//`variables[''PANTHEON_WPVULNDB_API_TOKEN''] = ''([^'']+)''`,
-					//`auth0-client-id-dashboard=[A-Za-z0-9]+`,
-					//`"audience": "([^"]+)",`,
-					//`DNSActionRequiredLegacyNoHTTPSAlertBodyProviderUnknown`,
-					//`Secret "pantheon" "([^"]+)"`,
-				},
+				WhitelistCodeMatch:  []string{},
 			},
 		},
 
@@ -1013,42 +730,7 @@ func entropyProcessorDefinitions() (result []*config.ProcessorConfig) {
 				WordLengthThreshold: 20,
 				Threshold:           3,
 				SkipPEMs:            false,
-				WhitelistCodeMatch:  []string{
-
-					//`\.git@([^#]+)`,
-					//
-					//// Git commit hash
-					//`git_ref\] = '([^']+)'`,
-					//`git [^ ]+ ([0-9a-fA-F]+)`,
-					//`>>>>>>> ([0-9a-fA-F]+)`,
-					//
-					//// Platform resources
-					//`/srv/bindings/([a-fA-F0-9]+)`,
-					//
-					//// Ruby dict assignment
-					//`\[:(?:.*checksum|rpm_sha)] = (?:"([^"]+)"|'[^']+')`,
-					//
-					//// JSON line with a certain key
-					//`"(?:thread_hash)": "([^"]+)"`,
-					//
-					//// Cert auth in JSON
-					//`{"ca":"2\.0\$([^\$]+)\$`,
-					//`{"ca":"2\.0\$[^\$]+\$([^\$]+)\$`,
-					//`{"ca":"2\.0\$[^\$]+\$[^\$]+\$([^\$]+)\$`,
-					//
-					//// Hashes
-					//// FIME Can't remember what this was before but this isn't working now
-					////        `* sha1('[^']+') = '([^'])'`,
-					//`checksum "([a-fA-F0-9]+)"`,
-					//`"[a-zA-Z0-9_-]+(?:_hash|_checksum)": "([A-Fa-f0-9]+)",?`,
-					//`<li class=\\"(?:resource)\\" id=\\"([A-Fa-f0-9]+)\\">`,
-					//
-					//// Misc
-					//`PIPEWISE_API_KEY = '([^']+)'`,
-					//`\[\:db_insert_placeholder_\d+\] => `,
-					//`hash.?salt.{30}`,
-					//`md5sum="([^"]+)"`,
-				},
+				WhitelistCodeMatch:  []string{},
 			},
 		},
 	}

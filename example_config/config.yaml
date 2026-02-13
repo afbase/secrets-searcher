@@ -1,26 +1,322 @@
 ---
 
-output-dir: ./output
+output-dir: ./ghsa-comparison
 log-level: info
 
 source:
   provider: github
-  organization: pantheon-systems
+  organization: abridgeai
 
   skip-forks: true
 
   include-repos:
-    - site-audit-tool
+    - product-services
+    - cloud-functions
+    - clinician-app
+    - native-client2
+    - admin-dashboard
+    - soap-dashboard
+    - encounter-domain
+    # # ── Core Product & Clinical ──────────────────────────────────────
+    # - active-listening
+    # - audio-recorder
+    # - audio-recorder-ios-sdk
+    # - audio-recorder-v2
+    # - builders-portal
+    # - clinician-app
+    # - clinician-app-load-testing
+    # - clinician-network-test
+    # - clinician-scientist-tools
+    # - clinician-web
+    # - completion-service
+    # - edge
+    # - encounter-debugger
+    # - encounter-domain
+    # - encounter-monitor
+    # - encounter-processor
+    # - event-stream-sdk
+    # - fullduplex
+    # - mock-ehr-surfaces
+    # - product
+    # - product-services
+    # - realtime
+    # - upload-service
+    # - verbatim-streaming-service
 
-  exclude-repos:
-    - autotag
-    - truffleHog
-    - WordPress
-    - wordpress-network
-    - wordpress-composer
+    # # ── ML / AI / NLP ────────────────────────────────────────────────
+    # - AbridGen
+    # - abridge-models
+    # - abridger
+    # - actionable-feedback
+    # - agentimo
+    # - asr-baseten
+    # - asr-dictation-curation
+    # - auto-eval-eyes
+    # - baseten-operator
+    # - cds-evals
+    # - cds-viewer
+    # - clinical-scenario-prompt-generator
+    # - clinical_retriever
+    # - coding
+    # - confab-analysis
+    # - concheck
+    # - conversation-synthesis
+    # - dag_llm
+    # - deid
+    # - deid-imputation
+    # - deid_tagger
+    # - ears-ai
+    # - ears-streaming
+    # - ears1
+    # - ears2
+    # - edg-icd10-hcc
+    # - eels-ai
+    # - elms-ai
+    # - en-core-sci-md
+    # - evals-centaur-annotations
+    # - evaluation-instruments-mirror
+    # - fbktagger
+    # - florence
+    # - get-edg-label
+    # - hcc
+    # - judges
+    # - lambda_training_cluster
+    # - langsmith
+    # - llm-gateway
+    # - llm-proxy
+    # - llm_eval
+    # - load-forecasting
+    # - mfx
+    # - mfx-annotation
+    # - mfx-pilot-results
+    # - mfx_research
+    # - MiniCheck
+    # - ml-abridge-coreweave
+    # - ml-cds
+    # - ml-colo-admin
+    # - ml-data-artifacts
+    # - ml-insights
+    # - ml-metrics-service
+    # - ml-monitoring-service
+    # - ml-prior-auth
+    # - ml-realtime-demo
+    # - ml-training-utils
+    # - MLDS
+    # - model-card-analyses
+    # - model-optimization
+    # - nightingale
+    # - nose_v2
+    # - nursing-model
+    # - PertAnno
+    # - policy_ingestion
+    # - prior_auth_annotation
+    # - question_cascade
+    # - quick_mfx
+    # - skypilot-api-server
+    # - soap-classifier
+    # - stat-bounds
+    # - statstools
+    # - suspected_rcm
+    # - symptom-state-extractor
+    # - synthesis
+    # - synthetic-conversations
+    # - transcription-prompt
+    # - umls-ner-ai
+    # - vector-store
+    # - vllm-production-stack
 
-    # # Forks
-    # - WordPress
+    # # ── Infrastructure & DevOps ──────────────────────────────────────
+    # - abridge-gov-tf-infra
+    # - abridge-helm-launcher
+    # - abridge-tf-launcher
+    # - abridge-tf-modules
+    # - argo-rollouts-demo
+    # - argocd
+    # - argocd-demo-app
+    # - chainguard-images
+    # - coder
+    # - datadog-agent-connect
+    # - gke-disk-image-builder
+    # - grafana-to-datadog-migration
+    # - iam-bindings-investigator
+    # - incident-io-catalog-types
+    # - incident-response
+    # - infra-atmos
+    # - infrastructure
+    # - infrastructure-test
+    # - jit-access
+    # - k8s-manifests
+    # - mtls-testing
+    # - platform-sandbox
+    # - platform-tools
+    # - service-mesh-demo
+    # - temporal-devops-utils
+    # - terraform-abridge-iam-center
+    # - terraform-drift-detection
+    # - tink-crypt
+    # - typescript-service-template-gke
+    # - validate-base-image-pipeline
+    # - watchdog
+
+    # # ── Data & Analytics ─────────────────────────────────────────────
+    # - abridge-dbt
+    # - abridge-dbt-sf
+    # - data-governance
+    # - data-lab
+    # - data-migrations
+    # - data-repatriation
+    # - dbt-snowflake
+    # - ds_bi
+    # - elasticsearch-indexers
+    # - finance
+    # - partner-analytics
+    # - prdash
+    # - prism-dashboards
+    # - pyspark-jobs
+
+    # # ── Cloud Services (GCP / Firestore) ─────────────────────────────
+    # - cloud-composer-jobs
+    # - cloud-functions
+    # - firestore-cdc
+    # - firestore-event-processor
+    # - firestore-export
+    # - firestore-rules
+    # - firestore-tools
+    # - google-cloud-professional-services-abridge-firestore
+    # - kyle-cloud-fn-v2
+
+    # # ── Integrations (EHR / Salesforce / Identity) ───────────────────
+    # - audit-trail-server-lib-python
+    # - audit-trail-service
+    # - buying-groups-lwc-refactor
+    # - ehr-interop
+    # - epic-kit-sandbox-proxy
+    # - epic-mock-server
+    # - governance-v2
+    # - identity-service
+    # - ius-abridge
+    # - partner-ehr-scripts
+    # - salesforce-revenue-intelligence
+    # - sfdc_account_page_redesign
+
+    # # ── Internal Tools & Automation ──────────────────────────────────
+    # - abdev
+    # - adjoin
+    # - admin-scripts
+    # - annotation-utils
+    # - apex
+    # - abridge-workspace
+    # - bilrost
+    # - bilrost-load-test
+    # - catbus
+    # - chad
+    # - chad-backstage
+    # - context-docs
+    # - cursorRules
+    # - external-services-smoke-test
+    # - flo
+    # - flyte
+    # - github-action-scanner
+    # - github-templates
+    # - heimdall
+    # - linear-cycle-slackbot
+    # - linear-issue-graphs
+    # - linear-notion-gantt
+    # - npx
+    # - nursing_tools
+    # - omni
+    # - pr-review-reminder
+    # - protobuf
+    # - python-packages
+    # - qa-soap-dashboard
+    # - release-please-demo
+    # - scrubs
+    # - service-test
+    # - skills
+    # - slack-workflows
+    # - system-api-poc
+    # - system-codex
+    # - test-api-sdk-generators
+    # - test-user-provider
+    # - worktrees-toolkit
+
+    # # ── Research / Experiments / Internships ──────────────────────────
+    # - additional-audio-experiments
+    # - alex-scratch
+    # - alexc-sr-scratch
+    # - Augustin-internship
+    # - cc-test-non-med-orders-qwen
+    # - cheat_sheet
+    # - chenhao_local
+    # - db-migrations-demo
+    # - delete-please
+    # - examine
+    # - foundations-coding-challenge
+    # - glass-health-poc
+    # - hack-realtime-crdt-transcript-note
+    # - hiring-interview-library
+    # - insights-exploration
+    # - interview-questions-bank
+    # - it-eng
+    # - it-hackathon-2026
+    # - johngiorgi-toolbox
+    # - karen_internship
+    # - karen_internship_clean
+    # - kate_please_delete
+    # - kyle-playground
+    # - mh-intern-repro
+    # - michael-internship
+    # - misattributions_mr_code
+    # - mondira-fdp
+    # - mourad-internship
+    # - pg-migrations
+    # - poc-recipe-notegen-workflow
+    # - problem_concordance-experiments
+    # - prototype-architecture-playground
+    # - prototype-editor-crdt
+    # - prototype-opus-web-audio
+    # - rohan-internship-e2e
+    # - ross-hello-world
+    # - sandbox
+    # - sky_internship
+    # - taruj-playground
+    # - temp-documents-dev-harness
+    # - va-fetch-and-analyze
+    # - vinay_experiments
+
+    # # ── Archived ─────────────────────────────────────────────────────
+    # - abridge-shared-datatypes
+    # - admin-dashboard
+    # - api-integration-testing
+    # - api-webhooks-service
+    # - cds-llm-judge
+    # - clinician-api
+    # - EMDS
+    # - empty-garbage
+    # - epic-haiku-webview
+    # - epic-types
+    # - identity-domain
+    # - loop_back_evaluation
+    # - ml-datatypes
+    # - ml-tracing-otlp-collector
+    # - ml-utilities
+    # - mlops-monitoring
+    # - native-client2
+    # - obsutil-python
+    # - rohan-internship
+    # - sequential-summarization
+    # - simple-soap
+    # - soap-dashboard
+    # - test-codecov-archive
+    # - web-ui
+
+    # # ── Forks ────────────────────────────────────────────────────────
+    # - CRDs-catalog
+    # - gke-fleet-management
+    # - kate_oops
+    # - test-soap-dashboard
+    # - vibe-soap
+    # - websocket-bridge
 
 search:
   show-bar-per-job: true
