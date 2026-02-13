@@ -158,6 +158,11 @@ const (
 	OutlookWebhookRegex
 	WPConfigCredentialsRegex
 
+	// GitHub Secret Scanning gap coverage
+	TemporalCloudAPIKeyRegex
+	GoogleOAuthClientSecretRegex
+	GoogleOAuthRefreshTokenRegex
+
 	// Cloud & Infrastructure (Batch 1)
 	AlibabaCloudKeyRegex
 	DatabricksTokenRegex

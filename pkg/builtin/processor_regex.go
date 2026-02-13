@@ -3105,5 +3105,30 @@ func regexProcessorDefinitions() (result []*config.ProcessorConfig) {
 			},
 		},
 
+		// Temporal Cloud API Key - JWT with ES256 + kid header
+		{
+			Name:      TemporalCloudAPIKeyRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(eyJhbGciOiJFUzI1NiIsICJraWQiOi[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)\b`,
+			},
+		},
+		// Google OAuth Client Secret - GOCSPX- prefix
+		{
+			Name:      GoogleOAuthClientSecretRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(GOCSPX-[A-Za-z0-9_-]{20,})\b`,
+			},
+		},
+		// Google OAuth Refresh Token - 1//0 prefix
+		{
+			Name:      GoogleOAuthRefreshTokenRegex.String(),
+			Processor: search.Regex.String(),
+			RegexProcessorConfig: config.RegexProcessorConfig{
+				RegexString: `\b(1//0[A-Za-z0-9_-]{20,})\b`,
+			},
+		},
+
 	}
 }

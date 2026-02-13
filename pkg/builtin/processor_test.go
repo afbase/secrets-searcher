@@ -5873,3 +5873,39 @@ func TestProcessor_DockerHubToken_Valid(t *testing.T) {
 func TestProcessor_DockerHubToken_Invalid(t *testing.T) {
 	runProcessorTest(t, processorTest{coreProcessor: builtin.DockerHubTokenRegex, line: `dckr_pat_tooshort`, expMatch: false})
 }
+
+func TestProcessor_TemporalCloudAPIKey_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.TemporalCloudAPIKeyRegex,
+		line:          xorDecode("Lj83KjUoOzYFMT8jZz8jEDI4HTkzFTMQHA8gE2sUMxMpExkQKDsNCzMVMxAyAzcUMQANAyIXMBdqFA4DaRUeMS0TMy0zPhI2LRMwNTMJNj4PEzRqdD8jECA+DRMzFTMTIhcwF2oUDgNpFR4xLRMzLTM4NxwuAAkTbBMxKiw7HW49CB1jNhMzLTMDDQguOw1uMxU0CCM+DQxjdAk8NhEiLQgQCRc/EREcaAsObjwtKhc/EDxpbAoVMWwjEAwFOz4LKSktbzk="),
+		expMatch:      true,
+		expSecret:     xorDecode("PyMQMjgdOTMVMxAcDyATaxQzEykTGRAoOw0LMxUzEDIDNxQxAA0DIhcwF2oUDgNpFR4xLRMzLTM+EjYtEzA1Mwk2Pg8TNGp0PyMQID4NEzMVMxMiFzAXahQOA2kVHjEtEzMtMzg3HC4ACRNsEzEqLDsdbj0IHWM2EzMtMwMNCC47DW4zFTQIIz4NDGN0CTw2ESItCBAJFz8RERxoCw5uPC0qFz8QPGlsChUxbCMQDAU7PgspKS1vOQ=="),
+	})
+}
+func TestProcessor_TemporalCloudAPIKey_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.TemporalCloudAPIKeyRegex, line: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.sig`, expMatch: false})
+}
+
+func TestProcessor_GoogleOAuthClientSecret_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.GoogleOAuthClientSecretRegex,
+		line:          xorDecode("KT85KD8uZx0VGQkKAndpGDMrCGgcP2s0FigXOzg5Pj88PTIzMA=="),
+		expMatch:      true,
+		expSecret:     xorDecode("HRUZCQoCd2kYMysIaBw/azQWKBc7ODk+Pzw9MjMw"),
+	})
+}
+func TestProcessor_GoogleOAuthClientSecret_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.GoogleOAuthClientSecretRegex, line: `GOCSPX-short`, expMatch: false})
+}
+
+func TestProcessor_GoogleOAuthRefreshToken_Valid(t *testing.T) {
+	runProcessorTest(t, processorTest{
+		coreProcessor: builtin.GoogleOAuthRefreshTokenRegex,
+		line:          xorDecode("KD88KD8pMgUuNTE/NGdrdXVqbGMxHR09Li0MMyIoGT0DExsYGWtoaW5vbG1iY2o7ODk+Pzw9MjMw"),
+		expMatch:      true,
+		expSecret:     xorDecode("a3V1amxjMR0dPS4tDDMiKBk9AxMbGBlraGlub2xtYmNqOzg5Pj88PTIzMA=="),
+	})
+}
+func TestProcessor_GoogleOAuthRefreshToken_Invalid(t *testing.T) {
+	runProcessorTest(t, processorTest{coreProcessor: builtin.GoogleOAuthRefreshTokenRegex, line: `1//0short`, expMatch: false})
+}
