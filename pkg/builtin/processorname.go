@@ -200,6 +200,48 @@ const (
 	CloudsmithAPIKeyRegex
 	PackageCloudTokenRegex
 
+	// DevOps & Developer Tools (Batch 2)
+	BitbucketAppPasswordRegex
+	DroneTokenRegex
+	SourcegraphTokenRegex
+	SourcegraphCodyTokenRegex
+	LangSmithTokenRegex
+	LangfuseSecretKeyRegex
+	LangfusePublicKeyRegex
+	PrefectTokenRegex
+	HarnessTokenRegex
+	ContentfulPATRegex
+	AirtableTokenRegex
+	NotionTokenRegex
+	ClickUpTokenRegex
+	AsanaPATRegex
+	CoverallsTokenRegex
+	CodemagicTokenRegex
+	CodacyTokenRegex
+	ScrutinizerTokenRegex
+	PercyTokenRegex
+	PagerDutyAPIKeyRegex
+	OpsgenieAPIKeyRegex
+	HoneycombTokenRegex
+	BetterStackTokenRegex
+	LogglyTokenRegex
+	LogzIOTokenRegex
+	PostHogTokenRegex
+	SegmentAPIKeyRegex
+	MixpanelTokenRegex
+	AmplitudeAPIKeyRegex
+	EndorLabsTokenRegex
+	NightfallAPIKeyRegex
+	SentryDSNRegex
+	JupiterOneTokenRegex
+	WizTokenRegex
+	DetectifyKeyRegex
+	MicrosoftTeamsWebhookRegex
+	ZapierWebhookRegex
+	TinesWebhookRegex
+	GitLabRunnerTokenRegex
+	DockerHubTokenRegex
+
 	// Marketing, Analytics & CRM (Batch 5)
 	MailerLiteTokenRegex
 	ConvertKitTokenRegex
