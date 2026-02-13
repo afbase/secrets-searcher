@@ -5391,14 +5391,15 @@ func TestProcessor_TextMagicKey_Invalid(t *testing.T) {
 	})
 }
 
+
 // ===== Batch 2: DevOps & Developer Tools Tests =====
 
 func TestProcessor_BitbucketAppPassword_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.BitbucketAppPasswordRegex,
-		line:          xorDecode("GwgYOhoPHQgLBRsKEwURHwNnGwgYOhs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJj"),
+		line:          xorDecode("GBMOGA8ZER8OBRsKCgUKGwkJDRUIHmcbDhgYOzg5Pj88amtoaW5vbG1iYxsYGR4fHDs4OT4/PGpraGlub2xtYmM="),
 		expMatch:      true,
-		expSecret:     xorDecode("GwgYOhs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJj"),
+		expSecret:     xorDecode("Gw4YGDs4OT4/PGpraGlub2xtYmMbGBkeHxw7ODk+Pzxqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_BitbucketAppPassword_Invalid(t *testing.T) {
@@ -5408,7 +5409,7 @@ func TestProcessor_BitbucketAppPassword_Invalid(t *testing.T) {
 func TestProcessor_DroneToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.DroneTokenRegex,
-		line:          xorDecode("HhIVFh8FDhURHxRnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		line:          xorDecode("HggVFB8FDhURHxRnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
 		expMatch:      true,
 		expSecret:     xorDecode("Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
 	})
@@ -5420,9 +5421,9 @@ func TestProcessor_DroneToken_Invalid(t *testing.T) {
 func TestProcessor_SourcegraphToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SourcegraphTokenRegex,
-		line:          xorDecode("CRUPGREfFGc5MzoFamtoaW5vbG1iYzs4OT4FamtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm8="),
+		line:          xorDecode("CRUPCBkfHQgbChIFDhURHxRnKT0qBTs7Ozs7Ozs7Ozs7Ozs7OzsFOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqaw=="),
 		expMatch:      true,
-		expSecret:     xorDecode("OTM6BWpraGlub2xtYmM7ODk+BWpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbA=="),
+		expSecret:     xorDecode("KT0qBTs7Ozs7Ozs7Ozs7Ozs7OzsFOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqaw=="),
 	})
 }
 func TestProcessor_SourcegraphToken_Invalid(t *testing.T) {
@@ -5432,9 +5433,9 @@ func TestProcessor_SourcegraphToken_Invalid(t *testing.T) {
 func TestProcessor_SourcegraphCodyToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SourcegraphCodyTokenRegex,
-		line:          xorDecode("OTY2BTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGk="),
+		line:          xorDecode("CRUPCBkfHQgbChIFGRUeA2cpNjEFOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYw=="),
 		expMatch:      true,
-		expSecret:     xorDecode("OTY2BTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGk="),
+		expSecret:     xorDecode("KTYxBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
 	})
 }
 func TestProcessor_SourcegraphCodyToken_Invalid(t *testing.T) {
@@ -5456,9 +5457,9 @@ func TestProcessor_LangSmithToken_Invalid(t *testing.T) {
 func TestProcessor_LangfuseSecretKey_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.LangfuseSecretKeyRegex,
-		line:          xorDecode("OTY3Nis4OT4/d2hpbm93bG1iY3c4OT53Pzxqd2hpbm93bG1iYw=="),
+		line:          xorDecode("FhsUHRwPCR8FCR8ZCB8OBREfA2cpMXc2PHc7ODk+Pzxqa3doaW5vd2xtYmN3Ozg5Pnc/PGpraGlub2xtYmM="),
 		expMatch:      true,
-		expSecret:     xorDecode("OTY3Nis4OT4/d2hpbm93bG1iY3c4OT53Pzxqd2hpbm93bG1iYw=="),
+		expSecret:     xorDecode("KTF3Njx3Ozg5Pj88amt3aGlub3dsbWJjdzs4OT53Pzxqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_LangfuseSecretKey_Invalid(t *testing.T) {
@@ -5468,9 +5469,9 @@ func TestProcessor_LangfuseSecretKey_Invalid(t *testing.T) {
 func TestProcessor_LangfusePublicKey_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.LangfusePublicKeyRegex,
-		line:          xorDecode("KjY3Nis4OT4/d2hpbm93bG1iY3c4OT53Pzxqd2hpbm93bG1iYw=="),
+		line:          xorDecode("FhsUHRwPCR8FCg8YFhMZBREfA2cqMXc2PHc7ODk+Pzxqa3doaW5vd2xtYmN3Ozg5Pnc/PGpraGlub2xtYmM="),
 		expMatch:      true,
-		expSecret:     xorDecode("KjY3Nis4OT4/d2hpbm93bG1iY3c4OT53Pzxqd2hpbm93bG1iYw=="),
+		expSecret:     xorDecode("KjF3Njx3Ozg5Pj88amt3aGlub3dsbWJjdzs4OT53Pzxqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_LangfusePublicKey_Invalid(t *testing.T) {
@@ -5480,9 +5481,9 @@ func TestProcessor_LangfusePublicKey_Invalid(t *testing.T) {
 func TestProcessor_PrefectToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.PrefectTokenRegex,
-		line:          xorDecode("Kj4vBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9s"),
+		line:          xorDecode("CggfHB8ZDgUbChMFER8DZyo0LwU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4="),
 		expMatch:      true,
-		expSecret:     xorDecode("Kj4vBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9s"),
+		expSecret:     xorDecode("KjQvBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pg=="),
 	})
 }
 func TestProcessor_PrefectToken_Invalid(t *testing.T) {
@@ -5492,9 +5493,9 @@ func TestProcessor_PrefectToken_Invalid(t *testing.T) {
 func TestProcessor_HarnessToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.HarnessTokenRegex,
-		line:          xorDecode("KjsuLjs4OT4/PGpraGlub2xtYmM7OC47ODk+Pzxqa2hpbm9sbWJjOzg4Ljs4OT4/PGpraGlub2xtYmM="),
+		line:          xorDecode("EhsIFB8JCQUOFREfFGcqOy50Ozg5Pj88amtoaW5vbG1iYzs4OT4/PHQ7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amt0Ozg5Pj88amtoaW5vbG1iYzs4OT4="),
 		expMatch:      true,
-		expSecret:     xorDecode("KjsuLjs4OT4/PGpraGlub2xtYmM7OC47ODk+Pzxqa2hpbm9sbWJjOzg4Ljs4OT4/PGpraGlub2xtYmM="),
+		expSecret:     xorDecode("KjsudDs4OT4/PGpraGlub2xtYmM7ODk+Pzx0Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGprdDs4OT4/PGpraGlub2xtYmM7ODk+"),
 	})
 }
 func TestProcessor_HarnessToken_Invalid(t *testing.T) {
@@ -5504,9 +5505,9 @@ func TestProcessor_HarnessToken_Invalid(t *testing.T) {
 func TestProcessor_ContentfulPAT_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.ContentfulPATRegex,
-		line:          xorDecode("GREKGwgnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJj"),
+		line:          xorDecode("GRUUDh8UDhwPFgUOFREfFGcZHAobDnc7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlub2xtYmMbGBkeHxwd"),
 		expMatch:      true,
-		expSecret:     xorDecode("GREKGwgnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJj"),
+		expSecret:     xorDecode("GRwKGw53Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbWJjGxgZHh8cHQ=="),
 	})
 }
 func TestProcessor_ContentfulPAT_Invalid(t *testing.T) {
@@ -5516,9 +5517,9 @@ func TestProcessor_ContentfulPAT_Invalid(t *testing.T) {
 func TestProcessor_AirtableToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.AirtableTokenRegex,
-		line:          xorDecode("GxMIDhsYFh8FGwoTBREfA2cqOy5raGlub2xtYmNqOzg5Pj90Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iY2o7"),
+		line:          xorDecode("GxMIDhsYFh8FDhURHxRnKjsuGzg5Hj88amtoaW5vbG10Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYw=="),
 		expMatch:      true,
-		expSecret:     xorDecode("Kjsua2hpbm9sbWJjajs4OT4/dDs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmNqOw=="),
+		expSecret:     xorDecode("KjsuGzg5Hj88amtoaW5vbG10Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYw=="),
 	})
 }
 func TestProcessor_AirtableToken_Invalid(t *testing.T) {
@@ -5528,9 +5529,9 @@ func TestProcessor_AirtableToken_Invalid(t *testing.T) {
 func TestProcessor_NotionToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.NotionTokenRegex,
-		line:          xorDecode("FB4OCRsUBQ4VER8Ugzk+Mzg/LQVqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		line:          xorDecode("FB4OCRsUBQ4VER8UZyk/OSg/LgUbOBk+Hzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYxsYGR4fHGpraGlu"),
 		expMatch:      true,
-		expSecret:     xorDecode("OTk+Mzg/LQVqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		expSecret:     xorDecode("KT85KD8uBRs4GT4fPGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjGxgZHh8camtoaW4="),
 	})
 }
 func TestProcessor_NotionToken_Invalid(t *testing.T) {
@@ -5540,9 +5541,9 @@ func TestProcessor_NotionToken_Invalid(t *testing.T) {
 func TestProcessor_ClickUpToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.ClickUpTokenRegex,
-		line:          xorDecode("GRYTGREPCgUOFREfFGcqMQVraGlub2xtYgUbGBkeHxwdEhMQERYXFBUKCwgJDg8MDQIDAGpraGlub2w="),
+		line:          xorDecode("GRYTGREPCgUOFREfFGcqMQVraGlub2xtYgUbGBkeHxwdEhMQERYXFBUKCwgJDg8MDQIDAGpraGlubw=="),
 		expMatch:      true,
-		expSecret:     xorDecode("KjEFa2hpbm9sbWIFGxgZHh8cHRITEBEWFxQVCgsICQ4PDA0CAwBqa2hpbm9s"),
+		expSecret:     xorDecode("KjEFa2hpbm9sbWIFGxgZHh8cHRITEBEWFxQVCgsICQ4PDA0CAwBqa2hpbm8="),
 	})
 }
 func TestProcessor_ClickUpToken_Invalid(t *testing.T) {
@@ -5576,7 +5577,7 @@ func TestProcessor_CoverallsToken_Invalid(t *testing.T) {
 func TestProcessor_CodemagicToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.CodemagicTokenRegex,
-		line:          xorDecode("GRUeHxcbHRMZBQ4VER8UZzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5v"),
+		line:          xorDecode("GRUeHxcbHRMZBRsKEwUOFREfFGc7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlubw=="),
 		expMatch:      true,
 		expSecret:     xorDecode("Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm8="),
 	})
@@ -5600,9 +5601,9 @@ func TestProcessor_CodacyToken_Invalid(t *testing.T) {
 func TestProcessor_ScrutinizerToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.ScrutinizerTokenRegex,
-		line:          xorDecode("CRkIDw4TFBMAHwgFDhURHxRnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjams="),
+		line:          xorDecode("CRkIDw4TFBMAHwgFGxkZHwkJBQ4VER8UZzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYw=="),
 		expMatch:      true,
-		expSecret:     xorDecode("Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjams="),
+		expSecret:     xorDecode("Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_ScrutinizerToken_Invalid(t *testing.T) {
@@ -5660,7 +5661,7 @@ func TestProcessor_HoneycombToken_Invalid(t *testing.T) {
 func TestProcessor_BetterStackToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.BetterStackTokenRegex,
-		line:          xorDecode("GB8ODh8ICQ4bGREFDhURHxRnOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm8="),
+		line:          xorDecode("GB8ODh8ICQ4bGREFGwoTBREfA2c7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlubw=="),
 		expMatch:      true,
 		expSecret:     xorDecode("Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm8="),
 	})
@@ -5684,7 +5685,7 @@ func TestProcessor_LogglyToken_Invalid(t *testing.T) {
 func TestProcessor_LogzIOToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.LogzIOTokenRegex,
-		line:          xorDecode("FhUdABMVBQ4VER8UZzs4OT4/PD0yGxgZHh8cHRIzMDE2NzQ1KhMQERYXFBUK"),
+		line:          xorDecode("FhUdABMVBRsKEwUOFREfFGc7ODk+Pzw9MhsYGR4fHB0SMzAxNjc0NSoTEBEWFxQVCg=="),
 		expMatch:      true,
 		expSecret:     xorDecode("Ozg5Pj88PTIbGBkeHxwdEjMwMTY3NDUqExARFhcUFQo="),
 	})
@@ -5696,9 +5697,9 @@ func TestProcessor_LogzIOToken_Invalid(t *testing.T) {
 func TestProcessor_PostHogToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.PostHogTokenRegex,
-		line:          xorDecode("KjIyBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4"),
+		line:          xorDecode("ChUJDhIVHQUbChMFER8DZyoyIgU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlub2xtYmMbGBkeHxwd"),
 		expMatch:      true,
-		expSecret:     xorDecode("KjIyBTs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4"),
+		expSecret:     xorDecode("KjIiBTs4OT4/PD0yMzAxNjc0NSorKCkuLywtIiMgamtoaW5vbG1iYxsYGR4fHB0="),
 	})
 }
 func TestProcessor_PostHogToken_Invalid(t *testing.T) {
@@ -5744,9 +5745,9 @@ func TestProcessor_AmplitudeAPIKey_Invalid(t *testing.T) {
 func TestProcessor_EndorLabsToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.EndorLabsTokenRegex,
-		line:          xorDecode("Hx4eCgUFDhURHxRnOzQ+MgVqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		line:          xorDecode("HxQeFQgFDhURHxRnPzQ+KAU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlub2xtYmM7ODk+"),
 		expMatch:      true,
-		expSecret:     xorDecode("Ozw+MgVqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		expSecret:     xorDecode("PzQ+KAU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlub2xtYmM7ODk+"),
 	})
 }
 func TestProcessor_EndorLabsToken_Invalid(t *testing.T) {
@@ -5756,9 +5757,9 @@ func TestProcessor_EndorLabsToken_Invalid(t *testing.T) {
 func TestProcessor_NightfallAPIKey_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.NightfallAPIKeyRegex,
-		line:          xorDecode("FBEnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		line:          xorDecode("FBMdEg4cGxYWBREfA2cUHHc7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGpraGlub2xtYmM="),
 		expMatch:      true,
-		expSecret:     xorDecode("FBEnOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM="),
+		expSecret:     xorDecode("FBx3Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_NightfallAPIKey_Invalid(t *testing.T) {
@@ -5768,9 +5769,9 @@ func TestProcessor_NightfallAPIKey_Invalid(t *testing.T) {
 func TestProcessor_SentryDSN_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.SentryDSNRegex,
-		line:          xorDecode("Mi4uKilgdXU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iY0k1a2hpbm9sPXQuMzQ/KXQuOTk+Lzg1LTkvdWtoaW5vbG0="),
+		line:          xorDecode("Mi4uKilgdXU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYxo1a2hpbm9sdDM0PT8pLnQpPzQuKCN0MzV1a2hpbm9sbQ=="),
 		expMatch:      true,
-		expSecret:     xorDecode("Mi4uKilgdXU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iY0k1a2hpbm9sPXQuMzQ/KXQuOTk+Lzg1LTkvdWtoaW5vbG0="),
+		expSecret:     xorDecode("Mi4uKilgdXU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYxo1a2hpbm9sdDM0PT8pLnQpPzQuKCN0MzV1a2hpbm9sbQ=="),
 	})
 }
 func TestProcessor_SentryDSN_Invalid(t *testing.T) {
@@ -5780,9 +5781,9 @@ func TestProcessor_SentryDSN_Invalid(t *testing.T) {
 func TestProcessor_JupiterOneToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.JupiterOneTokenRegex,
-		line:          xorDecode("EP8KEw4fCBUUHwUOFREfFGc7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmNqa2hpbm9sbQ=="),
+		line:          xorDecode("EA8KEw4fCBUUHwUbChMFER8DZzs4OT4/PD0yMzAxNjc0NSorKCkuLywtIiMgGxgZHh8cHRITEBEWFxQVCgsICQ4PDA0CAwBqa2hp"),
 		expMatch:      true,
-		expSecret:     xorDecode("Ozg5Pj88amtoaW5vbG1iYzs4OT4/PGpraGlub2xtYmM7ODk+Pzxqa2hpbm9sbWJjamtoaW5vbG0="),
+		expSecret:     xorDecode("Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyAbGBkeHxwdEhMQERYXFBUKCwgJDg8MDQIDAGpraGk="),
 	})
 }
 func TestProcessor_JupiterOneToken_Invalid(t *testing.T) {
@@ -5792,9 +5793,9 @@ func TestProcessor_JupiterOneToken_Invalid(t *testing.T) {
 func TestProcessor_WizToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.WizTokenRegex,
-		line:          xorDecode("DRMABQ4VER8UZzs4OT4/PD0yMzAxNjc0NSorKCkuLywtIiMgamtoaW5vbG1iYxsYGR4fHA=="),
+		line:          xorDecode("DRMABRkWEx8UDgUJHxkIHw5nOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbWJjGxgZHh8cHRI="),
 		expMatch:      true,
-		expSecret:     xorDecode("Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbWJjGxgZHh8c"),
+		expSecret:     xorDecode("Ozg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBqa2hpbm9sbWJjGxgZHh8cHRI="),
 	})
 }
 func TestProcessor_WizToken_Invalid(t *testing.T) {
@@ -5804,7 +5805,7 @@ func TestProcessor_WizToken_Invalid(t *testing.T) {
 func TestProcessor_DetectifyKey_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.DetectifyKeyRegex,
-		line:          xorDecode("Hh8OHxkOExwDBREfA2c+bjxtP2I7YzhpOWs+bz9sPG07YjhjOWo+az9oPGk7bg=="),
+		line:          xorDecode("Hh8OHxkOExwDBRsKEwURHwNnPm48bT9iO2M4aTlrPm8/bDxtO2I4YzlqPms/aDxpO24="),
 		expMatch:      true,
 		expSecret:     xorDecode("Pm48bT9iO2M4aTlrPm8/bDxtO2I4YzlqPms/aDxpO24="),
 	})
@@ -5816,9 +5817,9 @@ func TestProcessor_DetectifyKey_Invalid(t *testing.T) {
 func TestProcessor_MicrosoftTeamsWebhook_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.MicrosoftTeamsWebhookRegex,
-		line:          xorDecode("Mi4uKilgdXU7LjAyKzs4Ljk+LDs1LjkvPD0yNTMPLT04MjU1MXUzNjQ7NDI4KTsuOy4udU83OT4/d2hpbm93bG1iY3c7ODk+d3c4OT53Pzxqa2hpbm9sbWJjRTc3ODk+d3c4OT53Pzxqa2hpbm9sbWJjdTM8OTU3Mx8uMjU1MXU7ODk+Pzxqa2hpbm9sR3c4OT53Pzxqa2hpbm9sbWJjOzg5Pj88"),
+		line:          xorDecode("Mi4uKilgdXU3IzUoPXQtPzgyNTUxdDU8PDM5P3Q5NTd1LT84MjU1MThodTs4OT4/PGprd2hpbm93bG1iY3c7ODk+dz88amtoaW5vbG1iYxo7ODk+Pzxqa3doaW5vd2xtYmN3Ozg5Pnc/PGpraGlub2xtYmN1EzQ5NTczND0NPzgyNTUxdTs4OT4/PGpraGlub2xtYmN1Ozg5Pj88amt3aGlub3dsbWJjdzs4OT53Pzxqa2hpbm9sbWJj"),
 		expMatch:      true,
-		expSecret:     xorDecode("Mi4uKilgdXU7LjAyKzs4Ljk+LDs1LjkvPD0yNTMPLT04MjU1MXUzNjQ7NDI4KTsuOy4udU83OT4/d2hpbm93bG1iY3c7ODk+d3c4OT53Pzxqa2hpbm9sbWJjRTc3ODk+d3c4OT53Pzxqa2hpbm9sbWJjdTM4OTU3Mx8uMjU1MXU7ODk+Pzxqa2hpbm9sR3c4OT53Pzxqa2hpbm9sbWJjOzg5Pj88"),
+		expSecret:     xorDecode("Mi4uKilgdXU3IzUoPXQtPzgyNTUxdDU8PDM5P3Q5NTd1LT84MjU1MThodTs4OT4/PGprd2hpbm93bG1iY3c7ODk+dz88amtoaW5vbG1iYxo7ODk+Pzxqa3doaW5vd2xtYmN3Ozg5Pnc/PGpraGlub2xtYmN1EzQ5NTczND0NPzgyNTUxdTs4OT4/PGpraGlub2xtYmN1Ozg5Pj88amt3aGlub3dsbWJjdzs4OT53Pzxqa2hpbm9sbWJj"),
 	})
 }
 func TestProcessor_MicrosoftTeamsWebhook_Invalid(t *testing.T) {
@@ -5852,9 +5853,9 @@ func TestProcessor_TinesWebhook_Invalid(t *testing.T) {
 func TestProcessor_GitLabRunnerToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.GitLabRunnerTokenRegex,
-		line:          xorDecode("HRYJHQ4FDhURHxRnMTYyLgU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88"),
+		line:          xorDecode("HRMOFhsYBQgPFBQfCAUOFREfFGc9Nigudzs4OT4/PD0yMzAxNjc0NSorKCkuLywtIg=="),
 		expMatch:      true,
-		expSecret:     xorDecode("MTYyLgU7ODk+Pzxqa2hpbm9sbWJjOzg5Pj88"),
+		expSecret:     xorDecode("PTYoLnc7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSI="),
 	})
 }
 func TestProcessor_GitLabRunnerToken_Invalid(t *testing.T) {
@@ -5864,9 +5865,9 @@ func TestProcessor_GitLabRunnerToken_Invalid(t *testing.T) {
 func TestProcessor_DockerHubToken_Valid(t *testing.T) {
 	runProcessorTest(t, processorTest{
 		coreProcessor: builtin.DockerHubTokenRegex,
-		line:          xorDecode("Hh8ZGRsFDhURHxRnPjk2MgUqOy5ra2hpbm9sbWJjOzg5Pj88amtoaQ=="),
+		line:          xorDecode("HhUZER8IBQobDmc+OTEoBSo7LgU7ODk+Pzw9MjMwMTY3NDUqKygpLi8sLSIjIGo="),
 		expMatch:      true,
-		expSecret:     xorDecode("Pjk2MgUqOy5ra2hpbm9sbWJjOzg5Pj88amtoaQ=="),
+		expSecret:     xorDecode("PjkxKAUqOy4FOzg5Pj88PTIzMDE2NzQ1KisoKS4vLC0iIyBq"),
 	})
 }
 func TestProcessor_DockerHubToken_Invalid(t *testing.T) {
