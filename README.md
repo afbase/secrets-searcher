@@ -27,3 +27,14 @@ export SECRETS_SOURCE_API_TOKEN="[GITHUB_TOKEN]"
 ```
 
 The tool will create an `./output/report` directory that includes an HTML report.
+
+## License
+
+secrets-searcher is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+
+Its built-in detector patterns are derived from [trufflehog](https://github.com/trufflesecurity/trufflehog),
+which is AGPL-3.0, so the project as a whole is distributed under the same terms. If you run a modified
+version as a network service, the AGPL requires you to offer its source to the users of that service.
+
+The original Pantheon Systems code was released under the MIT License, which is kept in
+[LICENSE-MIT](LICENSE-MIT). Attribution for trufflehog and shhgit is in [NOTICE](NOTICE).
