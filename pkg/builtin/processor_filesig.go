@@ -951,5 +951,271 @@ func fileSignatureProcessorDefinitions() (result []*config.ProcessorConfig) {
 				Description: "Generic key/keypair file",
 			},
 		},
+
+		// ========================================
+		// Additional shhgit signatures
+		// ========================================
+
+		{
+			Name:      KDBXFileExtensionFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?i)\.kdbx?$`,
+				Description: "KeePass password manager database file",
+			},
+		},
+		{
+			Name:      KeyringFileExtensionFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?i)\.key(?:store|ring)$`,
+				Description: "GNOME Keyring / keystore database file",
+			},
+		},
+		{
+			Name:      SQLFileExtensionFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "extension",
+				Match:       "sql",
+				Description: "SQL dump file",
+			},
+		},
+		{
+			Name:      JenkinsPublishOverSSHFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "filename",
+				Match:       "jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin.xml",
+				Description: "Jenkins publish over SSH plugin file",
+			},
+		},
+		{
+			Name:      LittleSnitchConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "filename",
+				Match:       "configuration.user.xpl",
+				Description: "Little Snitch firewall configuration file",
+			},
+		},
+		{
+			Name:      JrnlJournalFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "filename",
+				Match:       "journal.txt",
+				Description: "Potential jrnl journal file",
+			},
+		},
+		{
+			Name:      VentriloServerINIFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "filename",
+				Match:       "ventrilo_srv.ini",
+				Description: "Ventrilo server configuration file",
+			},
+		},
+		{
+			Name:      PidginAccountsXMLFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?purple/accounts\.xml$`,
+				Description: "Pidgin chat client account configuration file",
+			},
+		},
+		{
+			Name:      XChatServerListFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?xchat2?/servlist_?\.conf$`,
+				Description: "Hexchat/XChat IRC client server list configuration file",
+			},
+		},
+		{
+			Name:      IrssiConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?irssi/config$`,
+				Description: "Irssi IRC client configuration file",
+			},
+		},
+		{
+			Name:      ReconNGKeysDBFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?recon-ng/keys\.db$`,
+				Description: "Recon-ng web reconnaissance framework API key database",
+			},
+		},
+		{
+			Name:      DBeaverDataSourcesFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?dbeaver-data-sources\.xml$`,
+				Description: "DBeaver SQL database manager configuration file",
+			},
+		},
+		{
+			Name:      MuttrcFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?muttrc$`,
+				Description: "Mutt e-mail client configuration file",
+			},
+		},
+		{
+			Name:      SFTPConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)sftp-config(?:\.json)?$`,
+				Description: "SFTP connection configuration file",
+			},
+		},
+		{
+			Name:      TwitterTrcFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?trc$`,
+				Description: "T command-line Twitter client configuration file",
+			},
+		},
+		{
+			Name:      RubygemsCredentialsFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?gem/credentials$`,
+				Description: "Rubygems credentials file",
+			},
+		},
+		{
+			Name:      TugboatFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?tugboat$`,
+				Description: "Tugboat DigitalOcean management tool configuration",
+			},
+		},
+		{
+			Name:      DoctlConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)doctl/config\.yaml$`,
+				Description: "DigitalOcean doctl command-line client configuration file",
+			},
+		},
+		{
+			Name:      GitHubHubConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?config/hub$`,
+				Description: "GitHub Hub command-line client configuration file",
+			},
+		},
+		{
+			Name:      GitConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?gitconfig$`,
+				Description: "Git configuration file",
+			},
+		},
+		{
+			Name:      ChefPrivateKeyFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?chef/.*\.pem$`,
+				Description: "Chef private key",
+			},
+		},
+		{
+			Name:      RemoteSyncJSONFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.remote-sync\.json$`,
+				Description: "remote-sync for Atom configuration with FTP/SFTP/SSH credentials",
+			},
+		},
+		{
+			Name:      ESMTPRCFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.esmtprc$`,
+				Description: "esmtp configuration",
+			},
+		},
+		{
+			Name:      DeploymentConfigJSONFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)deployment-config\.json?$`,
+				Description: "sftp-deployment for Atom configuration with server credentials",
+			},
+		},
+		{
+			Name:      FTPConfigFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.ftpconfig$`,
+				Description: "sftp-deployment for Atom configuration with server credentials",
+			},
+		},
+		{
+			Name:      RailsSecretsYMLFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)config/secrets\.yml$`,
+				Description: "Ruby on Rails secrets.yml file",
+			},
+		},
+		{
+			Name:      RailsMasterKeyFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)config/master\.key$`,
+				Description: "Rails master key (decrypts credentials.yml.enc)",
+			},
+		},
+		{
+			Name:      UnderscoreNetrcFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)_netrc$`,
+				Description: "Configuration file for auto-login process",
+			},
+		},
+		{
+			Name:      GenericShellHistoryFileSig.String(),
+			Processor: search.FileSignature.String(),
+			FileSignatureProcessorConfig: config.FileSignatureProcessorConfig{
+				Part:        "path",
+				RegexString: `(?:^|/)\.?z?history$`,
+				Description: "Shell command history file",
+			},
+		},
 	}
 }

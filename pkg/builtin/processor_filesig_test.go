@@ -757,3 +757,210 @@ func TestFileSig_KeyPair_Match(t *testing.T) {
 func TestFileSig_KeyPair_NoMatch(t *testing.T) {
 	runFileSigTest(t, builtin.KeyPairFileSig, "certs/public.pem", false)
 }
+
+// ========================================
+// Additional shhgit signatures
+// ========================================
+
+func TestFileSig_KDBXFileExtension_Match(t *testing.T) {
+	runFileSigTest(t, builtin.KDBXFileExtensionFileSig, "vault/passwords.kdbx", true)
+}
+func TestFileSig_KDBXFileExtension_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.KDBXFileExtensionFileSig, "vault/passwords.txt", false)
+}
+
+func TestFileSig_KeyringFileExtension_Match(t *testing.T) {
+	runFileSigTest(t, builtin.KeyringFileExtensionFileSig, "home/user/login.keyring", true)
+}
+func TestFileSig_KeyringFileExtension_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.KeyringFileExtensionFileSig, "home/user/login.key", false)
+}
+
+func TestFileSig_SQLFileExtension_Match(t *testing.T) {
+	runFileSigTest(t, builtin.SQLFileExtensionFileSig, "backup/users.sql", true)
+}
+func TestFileSig_SQLFileExtension_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.SQLFileExtensionFileSig, "backup/users.sq", false)
+}
+
+func TestFileSig_JenkinsPublishOverSSH_Match(t *testing.T) {
+	runFileSigTest(t, builtin.JenkinsPublishOverSSHFileSig, "jenkins/jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin.xml", true)
+}
+func TestFileSig_JenkinsPublishOverSSH_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.JenkinsPublishOverSSHFileSig, "jenkins/config.xml", false)
+}
+
+func TestFileSig_LittleSnitchConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.LittleSnitchConfigFileSig, "ls/configuration.user.xpl", true)
+}
+func TestFileSig_LittleSnitchConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.LittleSnitchConfigFileSig, "ls/configuration.xpl", false)
+}
+
+func TestFileSig_JrnlJournal_Match(t *testing.T) {
+	runFileSigTest(t, builtin.JrnlJournalFileSig, "home/journal.txt", true)
+}
+func TestFileSig_JrnlJournal_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.JrnlJournalFileSig, "home/journal.md", false)
+}
+
+func TestFileSig_VentriloServerINI_Match(t *testing.T) {
+	runFileSigTest(t, builtin.VentriloServerINIFileSig, "vent/ventrilo_srv.ini", true)
+}
+func TestFileSig_VentriloServerINI_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.VentriloServerINIFileSig, "vent/ventrilo.ini", false)
+}
+
+func TestFileSig_PidginAccountsXML_Match(t *testing.T) {
+	runFileSigTest(t, builtin.PidginAccountsXMLFileSig, "home/.purple/accounts.xml", true)
+}
+func TestFileSig_PidginAccountsXML_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.PidginAccountsXMLFileSig, "home/accounts.xml", false)
+}
+
+func TestFileSig_XChatServerList_Match(t *testing.T) {
+	runFileSigTest(t, builtin.XChatServerListFileSig, "home/.xchat2/servlist_.conf", true)
+}
+func TestFileSig_XChatServerList_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.XChatServerListFileSig, "home/servlist.conf", false)
+}
+
+func TestFileSig_IrssiConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.IrssiConfigFileSig, "home/.irssi/config", true)
+}
+func TestFileSig_IrssiConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.IrssiConfigFileSig, "home/irssi.conf", false)
+}
+
+func TestFileSig_ReconNGKeysDB_Match(t *testing.T) {
+	runFileSigTest(t, builtin.ReconNGKeysDBFileSig, "home/.recon-ng/keys.db", true)
+}
+func TestFileSig_ReconNGKeysDB_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.ReconNGKeysDBFileSig, "home/keys.db", false)
+}
+
+func TestFileSig_DBeaverDataSources_Match(t *testing.T) {
+	runFileSigTest(t, builtin.DBeaverDataSourcesFileSig, "ws/.dbeaver-data-sources.xml", true)
+}
+func TestFileSig_DBeaverDataSources_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.DBeaverDataSourcesFileSig, "ws/data-sources.xml", false)
+}
+
+func TestFileSig_Muttrc_Match(t *testing.T) {
+	runFileSigTest(t, builtin.MuttrcFileSig, "home/.muttrc", true)
+}
+func TestFileSig_Muttrc_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.MuttrcFileSig, "home/.mutt", false)
+}
+
+func TestFileSig_SFTPConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.SFTPConfigFileSig, "site/sftp-config.json", true)
+}
+func TestFileSig_SFTPConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.SFTPConfigFileSig, "site/sftp.json", false)
+}
+
+func TestFileSig_TwitterTrc_Match(t *testing.T) {
+	runFileSigTest(t, builtin.TwitterTrcFileSig, "home/.trc", true)
+}
+func TestFileSig_TwitterTrc_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.TwitterTrcFileSig, "home/.trcx", false)
+}
+
+func TestFileSig_RubygemsCredentials_Match(t *testing.T) {
+	runFileSigTest(t, builtin.RubygemsCredentialsFileSig, "home/.gem/credentials", true)
+}
+func TestFileSig_RubygemsCredentials_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.RubygemsCredentialsFileSig, "home/.gem/specs", false)
+}
+
+func TestFileSig_Tugboat_Match(t *testing.T) {
+	runFileSigTest(t, builtin.TugboatFileSig, "home/.tugboat", true)
+}
+func TestFileSig_Tugboat_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.TugboatFileSig, "home/.tugboats", false)
+}
+
+func TestFileSig_DoctlConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.DoctlConfigFileSig, "home/.config/doctl/config.yaml", true)
+}
+func TestFileSig_DoctlConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.DoctlConfigFileSig, "home/.config/config.yaml", false)
+}
+
+func TestFileSig_GitHubHubConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.GitHubHubConfigFileSig, "home/.config/hub", true)
+}
+func TestFileSig_GitHubHubConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.GitHubHubConfigFileSig, "home/.config/hubs", false)
+}
+
+func TestFileSig_GitConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.GitConfigFileSig, "home/.gitconfig", true)
+}
+func TestFileSig_GitConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.GitConfigFileSig, "home/.gitignore", false)
+}
+
+func TestFileSig_ChefPrivateKey_Match(t *testing.T) {
+	runFileSigTest(t, builtin.ChefPrivateKeyFileSig, "repo/.chef/admin.pem", true)
+}
+func TestFileSig_ChefPrivateKey_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.ChefPrivateKeyFileSig, "repo/.chef/knife.rb", false)
+}
+
+func TestFileSig_RemoteSyncJSON_Match(t *testing.T) {
+	runFileSigTest(t, builtin.RemoteSyncJSONFileSig, "proj/.remote-sync.json", true)
+}
+func TestFileSig_RemoteSyncJSON_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.RemoteSyncJSONFileSig, "proj/remote.json", false)
+}
+
+func TestFileSig_ESMTPRC_Match(t *testing.T) {
+	runFileSigTest(t, builtin.ESMTPRCFileSig, "home/.esmtprc", true)
+}
+func TestFileSig_ESMTPRC_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.ESMTPRCFileSig, "home/.smtprc", false)
+}
+
+func TestFileSig_DeploymentConfigJSON_Match(t *testing.T) {
+	runFileSigTest(t, builtin.DeploymentConfigJSONFileSig, "proj/deployment-config.json", true)
+}
+func TestFileSig_DeploymentConfigJSON_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.DeploymentConfigJSONFileSig, "proj/deployment.json", false)
+}
+
+func TestFileSig_FTPConfig_Match(t *testing.T) {
+	runFileSigTest(t, builtin.FTPConfigFileSig, "proj/.ftpconfig", true)
+}
+func TestFileSig_FTPConfig_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.FTPConfigFileSig, "proj/ftpconfig.md", false)
+}
+
+func TestFileSig_RailsSecretsYML_Match(t *testing.T) {
+	runFileSigTest(t, builtin.RailsSecretsYMLFileSig, "web/ruby/config/secrets.yml", true)
+}
+func TestFileSig_RailsSecretsYML_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.RailsSecretsYMLFileSig, "web/ruby/config/routes.yml", false)
+}
+
+func TestFileSig_RailsMasterKey_Match(t *testing.T) {
+	runFileSigTest(t, builtin.RailsMasterKeyFileSig, "ruby/config/master.key", true)
+}
+func TestFileSig_RailsMasterKey_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.RailsMasterKeyFileSig, "ruby/config/master.txt", false)
+}
+
+func TestFileSig_UnderscoreNetrc_Match(t *testing.T) {
+	runFileSigTest(t, builtin.UnderscoreNetrcFileSig, "home/_netrc", true)
+}
+func TestFileSig_UnderscoreNetrc_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.UnderscoreNetrcFileSig, "home/netrc.txt", false)
+}
+
+func TestFileSig_GenericShellHistory_Match(t *testing.T) {
+	runFileSigTest(t, builtin.GenericShellHistoryFileSig, "home/.zhistory", true)
+}
+func TestFileSig_GenericShellHistory_NoMatch(t *testing.T) {
+	runFileSigTest(t, builtin.GenericShellHistoryFileSig, "home/history.md", false)
+}

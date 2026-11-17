@@ -13,6 +13,7 @@ func processorDefinitions() (result []*config.ProcessorConfig) {
 	result = append(result, setterProcessorDefinitions()...)
 	result = append(result, pemProcessorDefinitions()...)
 	result = append(result, regexProcessorDefinitions()...)
+	result = append(result, upstreamRegexProcessorDefinitions()...)
 	result = append(result, fileSignatureProcessorDefinitions()...)
 	//result = append(result, entropyProcessorDefinitions()...)
 	return
